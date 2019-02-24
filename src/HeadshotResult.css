@@ -46,9 +46,9 @@
 
 .relevant-image-horizontal{
     display: flex;
-    height: 30vh;
+    height: 40vh;
     z-index: 200;
-    width: 50vh;
+    width: 60vh;
     border-radius: 8vh;
     background-color: inherit;
     box-shadow: 2px 2px black;
