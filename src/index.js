@@ -95,9 +95,9 @@ let profileHenrex = {
 
 let profileYasuko = {
     name: 'Yasuko',
-    title: 'Stealth Force Captain',
-    race: 'Shinigami/Demon Hybrid',
-    organization: 'Gotei 13, Vastime, Guild of Heroes',
+    title: 'Spirit Tamer',
+    race: 'Spiritual Human',
+    organization: 'Hebi Laboratories',
     primaryColor: '#8B008B',
     secondaryColor: '#4B0082',
     textBackgroundColor: '#8B008B',
