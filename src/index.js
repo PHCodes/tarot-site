@@ -110,9 +110,9 @@ let profileYasuko = {
 
 let profileSuzu = {
     name: 'Suzu Hebi',
-    title: 'Wife of the Doctor',
-    race: 'Shinigami/Demon Hybrid',
-    organization: 'Gotei 13, Vastime, Guild of Heroes',
+    title: 'Trecera Espada',
+    race: 'Transcended Arrancar',
+    organization: 'Shadow Fall',
     primaryColor: '#9400D3',
     secondaryColor: '#9400D3',
     textBackgroundColor: '#9400D3',
