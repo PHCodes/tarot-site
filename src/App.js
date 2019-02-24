@@ -7,7 +7,7 @@ import HeadshotResult from './HeadshotResult';
 import { spring, AnimatedRoute } from 'react-router-transition';
 import Overview from './Overview';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
