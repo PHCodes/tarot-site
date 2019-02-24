@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/tarot-site/static/media/Calypso.703146e3.jpg"
   },
   {
-    "revision": "24d9279b18be34b47849",
+    "revision": "b0de5fc5b6e09a70f2a3",
     "url": "/tarot-site/static/css/main.c35fb19c.chunk.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = [
     "url": "/tarot-site/static/media/Sofia2.f3bd1ef5.gif"
   },
   {
-    "revision": "24d9279b18be34b47849",
-    "url": "/tarot-site/static/js/main.24d9279b.chunk.js"
+    "revision": "b0de5fc5b6e09a70f2a3",
+    "url": "/tarot-site/static/js/main.b0de5fc5.chunk.js"
   },
   {
     "revision": "58abb264678022a64fbcd7f31d65efc9",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/tarot-site/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "c059ba3978916ad034970fade4fa16d9",
+    "revision": "63969a20c61328aa1a280e9ed802fd6c",
     "url": "/tarot-site/index.html"
   }
 ];
