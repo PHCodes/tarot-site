@@ -15,6 +15,8 @@ import HenrexHeadshot from './Henrex.png';
 import Henrex from './Henrex2.png';
 import YasukoHeadshot from './Yasuko.PNG';
 import Yasuko from './Yasuko2.jpg'
+import SuzuHeadshot from './Suzu.PNG';
+import Suzu from './Suzu2.jpg';
 
 let profileMana = {
     name: 'Mana Asthavon',
@@ -106,6 +108,21 @@ let profileYasuko = {
     player: 'MWD'
 }
 
+let profileSuzu = {
+    name: 'Suzu Hebi',
+    title: 'Wife of the Doctor',
+    race: 'Shinigami/Demon Hybrid',
+    organization: 'Gotei 13, Vastime, Guild of Heroes',
+    primaryColor: '#9400D3',
+    secondaryColor: '#9400D3',
+    textBackgroundColor: '#9400D3',
+    textDark: false,
+    traits: 'none',
+    picture: Suzu,
+    headshot: SuzuHeadshot,
+    player: 'Zetsurin'
+}
+
 
 
 let mockArray = [];
@@ -116,6 +133,7 @@ mockArray.push(profileSofia);
 mockArray.push(profileCalypso);
 mockArray.push(profileHenrex);
 mockArray.push(profileYasuko);
+mockArray.push(profileSuzu);
 
 let retiredPlayers = [
 ]
