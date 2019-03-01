@@ -1,0 +1,109 @@
+{
+    "items" : [
+        {
+            "name": "Mana Asthavon",
+            "title": "Queen of Demons",
+            "race": "Demon",
+            "organization": "Shadowfall",
+            "primaryColor": "lime",
+            "secondaryColor": "green",
+            "textBackgroundColor": "hsl(125, 82%, 28%)",
+            "textDark": true,
+            "traits": "none",
+            "picture": "/img/Mana2.gif",
+            "headshot": "/img/Mana.jpg",
+            "player": "The Frost"
+        },
+
+        {
+            "name": "Adamant",
+            "title": "???",
+            "race": "Race Unknown",
+            "organization": "Unaffiliated",
+            "primaryColor": "#b30000",
+            "secondaryColor": "#ff6666",
+            "textBackgroundColor": "#ff99cc",
+            "textDark": true,
+            "traits": "none",
+            "picture": "/img/Adamant2.jpg",
+            "headshot": "/img/Adamant.jpg",
+            "player": "Watamote"
+        },
+
+        {
+            "name": "Sofia",
+            "title": "The Melody",
+            "race": "Quincy",
+            "organization": "Vandenreich",
+            "primaryColor": "#bc9e08",
+            "secondaryColor": "#ecc60ecc",
+            "textBackgroundColor": "#8f673a",
+            "textDark": false,
+            "traits": "none",
+            "picture": "/img/Sofia2.gif",
+            "headshot": "/img/Sofia.PNG",
+            "player": "The Owl"
+        },
+
+        {
+            "name": "Calypso",
+            "title": "Crybaby",
+            "race": "Danava of Dreams/Nightmares",
+            "organization": "Unaffiliated",
+            "primaryColor": "#fb9327de",
+            "secondaryColor": "#ea0f0f",
+            "textBackgroundColor": "#ea0f0f",
+            "textDark": false,
+            "traits": "none",
+            "picture": "/img/Calypso2.PNG",
+            "headshot": "/img/Calypso.jpg",
+            "player": "Lillian"
+        },
+
+        {
+            "name": "Henrex Astillon",
+            "title": "Stealth Force Captain",
+            "race": "Shinigami/Demon Hybrid",
+            "organization": "Gotei 13, Vastime, Guild of Heroes",
+            "primaryColor": "#5A178C",
+            "secondaryColor": "#316AD5",
+            "textBackgroundColor": "#6131d5",
+            "textDark": false,
+            "traits": "none",
+            "picture": "/img/Henrex2.png",
+            "headshot": "/img/Henrex.png",
+            "player": "Henrex"
+        },
+
+        {
+            "name": "Yasuko",
+            "title": "Spirit Tamer",
+            "race": "Spiritual Human",
+            "organization": "Hebi Laboratories",
+            "primaryColor": "#8B008B",
+            "secondaryColor": "#4B0082",
+            "textBackgroundColor": "#8B008B",
+            "textDark": false,
+            "traits": "none",
+            "picture": "/img/Yasuko2.jpg",
+            "headshot": "/img/Yasuko.PNG",
+            "player": "MWD"
+        },
+
+        {
+            "name": "Suzu Hebi",
+            "title": "Trecera Espada",
+            "race": "Transcended Arrancar",
+            "organization": "Shadow Fall",
+            "primaryColor": "#9400D3",
+            "secondaryColor": "#9400D3",
+            "textBackgroundColor": "#9400D3",
+            "textDark": false,
+            "traits": "none",
+            "picture": "/img/Suzu2.jpg",
+            "headshot": "/img/Suzu.PNG",
+            "player": "Zetsurin"
+        }
+
+    ]
+}
