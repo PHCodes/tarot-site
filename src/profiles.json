@@ -11,7 +11,7 @@
             "textDark": true,
             "traits": "none",
             "picture": "/img/Mana2.gif",
-            "headshot": "/img/Mana.jpg",
+            "headshot": "./img/Mana.jpg",
             "player": "The Frost"
         },
 
