@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tarot-site/precache-manifest.56f71e04bcd5958889945397d64f840c.js"
+  "/tarot-site/precache-manifest.f2ebe5231b41882249e3b59f817b1e91.js"
 );
 
 workbox.clientsClaim();
