@@ -10,8 +10,8 @@
             "textBackgroundColor": "hsl(125, 82%, 28%)",
             "textDark": true,
             "traits": "none",
-            "picture": "/img/Mana2.gif",
-            "headshot": "./img/Mana.jpg",
+            "picture": "Img/Mana2.gif",
+            "headshot": "Img/Mana.jpg",
             "player": "The Frost"
         },
 
@@ -25,8 +25,8 @@
             "textBackgroundColor": "#ff99cc",
             "textDark": true,
             "traits": "none",
-            "picture": "/img/Adamant2.jpg",
-            "headshot": "/img/Adamant.jpg",
+            "picture": "Img/Adamant2.jpg",
+            "headshot": "Img/Adamant.jpg",
             "player": "Watamote"
         },
 
@@ -40,8 +40,8 @@
             "textBackgroundColor": "#8f673a",
             "textDark": false,
             "traits": "none",
-            "picture": "/img/Sofia2.gif",
-            "headshot": "/img/Sofia.PNG",
+            "picture": "Img/Sofia2.gif",
+            "headshot": "Img/Sofia.PNG",
             "player": "The Owl"
         },
 
@@ -55,8 +55,8 @@
             "textBackgroundColor": "#ea0f0f",
             "textDark": false,
             "traits": "none",
-            "picture": "/img/Calypso2.PNG",
-            "headshot": "/img/Calypso.jpg",
+            "picture": "Img/Calypso2.PNG",
+            "headshot": "Img/Calypso.jpg",
             "player": "Lillian"
         },
 
@@ -70,8 +70,8 @@
             "textBackgroundColor": "#6131d5",
             "textDark": false,
             "traits": "none",
-            "picture": "/img/Henrex2.png",
-            "headshot": "/img/Henrex.png",
+            "picture": "Img/Henrex2.png",
+            "headshot": "Img/Henrex.png",
             "player": "Henrex"
         },
 
@@ -85,8 +85,8 @@
             "textBackgroundColor": "#8B008B",
             "textDark": false,
             "traits": "none",
-            "picture": "/img/Yasuko2.jpg",
-            "headshot": "/img/Yasuko.PNG",
+            "picture": "Img/Yasuko2.jpg",
+            "headshot": "Img/Yasuko.PNG",
             "player": "MWD"
         },
 
@@ -100,8 +100,8 @@
             "textBackgroundColor": "#9400D3",
             "textDark": false,
             "traits": "none",
-            "picture": "/img/Suzu2.jpg",
-            "headshot": "/img/Suzu.PNG",
+            "picture": "Img/Suzu2.jpg",
+            "headshot": "Img/Suzu.PNG",
             "player": "Zetsurin"
         }
 

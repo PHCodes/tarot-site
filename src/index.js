@@ -8,6 +8,7 @@ const krishnaBitching = Profiles.items;
 let profileSet = [];
 for(let x = 0; x < krishnaBitching.length; x++){
     let newProfileItem = krishnaBitching[x];
+    newProfileItem.headshot = newProfileItem.headshot;
     profileSet.push(newProfileItem);
 }
 
