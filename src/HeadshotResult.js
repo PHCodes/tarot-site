@@ -5,21 +5,22 @@ import './HeadshotResult.css';
 
 class HeadshotResult extends Component {
 
-    componentDidMount() {
-        document.getElementById(this.props.item.name).style.backgroundColor = this.props.item.primaryColor;
-        document.getElementById('main-color').style.backgroundColor = this.props.item.secondaryColor;
-        document.getElementById('inner-info-' + this.props.item.name).style.backgroundColor = this.props.item.textBackgroundColor;
+    reload = () => {
+        
+        document.getElementById(this.props.item.name).style.backgroundColor = this.props.item.primarycolor;
+        document.getElementById('main-color').style.backgroundColor = this.props.item.secondarycolor;
+        document.getElementById('inner-info-' + this.props.item.name).style.backgroundColor = this.props.item.textbackgroundcolor;
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
-            button.style.backgroundColor = this.props.item.secondaryColor;
+            button.style.backgroundColor = this.props.item.secondarycolor;
         }
-        if (!this.props.item.textDark) {
+        if (!this.props.item.textdark) {
             let textToColor = document.getElementsByClassName('info-field');
             for (let text of textToColor) {
                 text.style.color = 'white';
             }
         }
-        if (!this.props.item.textDark) {
+        if (!this.props.item.textdark) {
             let textToColor = document.getElementsByClassName('basic-button');
             for (let text of textToColor) {
                 text.style.color = 'white';
@@ -45,13 +46,18 @@ class HeadshotResult extends Component {
         }
     }
 
+    componentDidMount() {
+        this.reload();
+    }
+
     componentDidUpdate() {
+        this.reload();
         document.getElementById('main-color').style.backgroundColor = '#61dafb';
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
             button.style.backgroundColor = '#61dafb';
         }
-        if (!this.props.item.textDark) {
+        if (!this.props.item.textdark) {
             let textToColor = document.getElementsByClassName('basic-button');
             for (let text of textToColor) {
                 text.style.color = 'black';

@@ -5,7 +5,7 @@ import './Headshot.css';
 
 class Headshot extends Component {
     componentDidMount() {
-        if (!this.props.item.textDark) {
+        if (!this.props.item.textdark) {
             let textToColor = document.getElementsByClassName('name-focus');
             for (let text of textToColor) {
                 text.style.color = 'white';
@@ -28,7 +28,7 @@ class Headshot extends Component {
 
         return (
             <span className="headshot">
-                <span id={"name-box-" + this.props.item.name} className="name-box invisible" style={{ 'background-color': this.props.item.textBackgroundColor }}>
+                <span id={"name-box-" + this.props.item.name} className="name-box invisible" style={{ 'background-color': this.props.item.textbackgroundcolor }}>
                     <span id={"name-" + this.props.item.name} className="name-focus invisible">
                         {this.props.item.name}
                         <br />

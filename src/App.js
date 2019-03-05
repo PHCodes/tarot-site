@@ -87,6 +87,7 @@ class App extends Component {
     let x = 0;
     for (let item of this.props.itemList) {
       x = x + 1;
+      
       resultPages.push(<AnimatedRoute
         atEnter={bounceTransition.atEnter}
         atLeave={bounceTransition.atLeave}

@@ -9,6 +9,7 @@
         border-radius: 8vh;
         z-index: -1;
         width: 60vw;
+        max-width: 600px;
         background-color: blue;
 }
 

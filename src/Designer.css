@@ -2,16 +2,17 @@
     display: inline-flex;
     justify-content: center;
     margin: 2vh;
-    width: 60vh;
+    min-width: 60vh;
     border-radius: 8vh;
     z-index: 100;
     background-color: blue;
 }
 
 .designer-page-inner {
+    display: flex;
     margin: 1vh;
     padding-top: 3vh;
-    width: 58vh;
+    min-width: 58vh;
     z-index: 200;
     border-radius: 8vh;
     background-color: #282c34;

@@ -7,6 +7,18 @@ import HeadshotResult from './HeadshotResult';
 class Designer extends Component {
     //Should have item in props.
 
+    componentDidUpdate() {
+        document.getElementById('main-color').style.backgroundColor = '#61dafb';
+        let buttonsToColor = document.getElementsByClassName('basic-button');
+        for (let button of buttonsToColor) {
+            button.style.backgroundColor = '#61dafb';
+        }
+        let textToColor = document.getElementsByClassName('basic-button');
+        for (let text of textToColor) {
+            text.style.color = 'black';
+        }
+    }
+
     handleExample = (event) => {
         event.preventDefault();
         let filterNamesAndValues = [];
@@ -14,11 +26,11 @@ class Designer extends Component {
         let example = {};
         for (var exampleFieldToRender of event.currentTarget) {
             if (exampleFieldToRender.type == "text") {
-                if(exampleFieldToRender.value){
-                    example[exampleFieldToRender.name.toLowerCase().replace(" ", "")] = exampleFieldToRender.value;            
-                } else{
-                    example[exampleFieldToRender.name.toLowerCase().replace(" ", "")] = 'N/A';            
-                
+                if (exampleFieldToRender.value) {
+                    example[exampleFieldToRender.name.toLowerCase().replace(/ /g, "")] = exampleFieldToRender.value;
+                } else {
+                    example[exampleFieldToRender.name.toLowerCase().replace(/ /g, "")] = 'N/A';
+
                 }
             }
         }
@@ -50,17 +62,17 @@ class Designer extends Component {
 
         return (
             <div>
-            <span className="designer-page-outer">
-                <span className="designer-page-inner">
-                    <form onSubmit={(event) => this.handleExample(event)}>
-                        {objectsForInformation}
-                        <input className="basic-button example-button" type="submit" value="Submit" />
-                    </form>
+                <span className="designer-page-outer">
+                    <span className="designer-page-inner">
+                        <form onSubmit={(event) => this.handleExample(event)}>
+                            {objectsForInformation}
+                            <input className="basic-button example-button" type="submit" value="Submit" />
+                        </form>
+                    </span>
                 </span>
-            </span>
 
-            <div id="example">
-            </div>
+                <div id="example">
+                </div>
             </div>
         );
     }
