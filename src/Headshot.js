@@ -37,6 +37,9 @@ class Headshot extends Component {
                         {this.props.item.race}
                         <br />
                         {this.props.item.organization}
+                        <br />
+                        {this.props.item.power}
+                        <br />
                     </span>
                 </span>
                 <img className="image-box" id="imgFull" src={this.props.item.headshot} />

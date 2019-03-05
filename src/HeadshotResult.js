@@ -81,17 +81,22 @@ class HeadshotResult extends Component {
                             Name: {this.props.item.name ? this.props.item.name : "ERROR NO NAME GIVEN!"}
                         </div>
                         <div className="info-field">
-                            {'Title'+(this.props.item.organization.includes(" ") ? "s" : "")}: {this.props.item.title ?this.props.item.title : "N/A"}
+                            {'Title'+(this.props.item.title.includes(" ") ? "s" : "")}: {this.props.item.title ?this.props.item.title : "N/A"}
                         </div>
                         <div className="info-field">
                             Race: {this.props.item.race ? this.props.item.race : "N/A"}
                         </div>
                         <div className="info-field">
-                            {'Organization'+(this.props.item.organization.includes(" ") ? "s" : "")} : {this.props.item.organization ? this.props.item.organization : "N/A"}
+                            {'Organization'+(this.props.item.organization.includes(" ") ? "s" : "")}: {this.props.item.organization ? this.props.item.organization : "N/A"}
                         </div>
-                        <br />
                         <div className="info-field">
-                            {'Overall Power Concept'+(this.props.item.organization.includes(" ") ? "s" : "")}: {this.props.item.powers ? this.props.item.powers : "N/A"}
+                            {'Overall Power Concept'+(this.props.item.power.includes(" ") ? "s" : "")}: {this.props.item.power ? this.props.item.power : "N/A"}
+                        </div>
+                        <div className="info-field">
+                            Passionate about: {this.props.item.passion ? this.props.item.passion : "N/A"}
+                        </div>
+                        <div className="info-field">
+                            <a href={this.props.item.application}>App Link</a>
                         </div>
                         <br />
                         <div className="info-field">

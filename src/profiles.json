@@ -10,6 +10,7 @@
             "textBackgroundColor": "hsl(125, 82%, 28%)",
             "textDark": true,
             "traits": "none",
+            "power" : "Madness",
             "picture": "Img/Mana2.gif",
             "headshot": "Img/Mana.jpg",
             "player": "The Frost"
@@ -25,6 +26,7 @@
             "textBackgroundColor": "#ff99cc",
             "textDark": true,
             "traits": "none",
+            "power" : "Mineralogy",
             "picture": "Img/Adamant2.jpg",
             "headshot": "Img/Adamant.jpg",
             "player": "Watamote"
@@ -40,6 +42,7 @@
             "textBackgroundColor": "#8f673a",
             "textDark": false,
             "traits": "none",
+            "power" : "Music",
             "picture": "Img/Sofia2.gif",
             "headshot": "Img/Sofia.PNG",
             "player": "The Owl"
@@ -55,6 +58,7 @@
             "textBackgroundColor": "#ea0f0f",
             "textDark": false,
             "traits": "none",
+            "power" : "Dreams",
             "picture": "Img/Calypso2.PNG",
             "headshot": "Img/Calypso.jpg",
             "player": "Lillian"
@@ -70,6 +74,7 @@
             "textBackgroundColor": "#6131d5",
             "textDark": false,
             "traits": "none",
+            "power": "Ninjutsu, Electricity",
             "picture": "Img/Henrex2.png",
             "headshot": "Img/Henrex.png",
             "player": "Henrex"
@@ -85,6 +90,7 @@
             "textBackgroundColor": "#8B008B",
             "textDark": false,
             "traits": "none",
+            "power" : "Spiritualism",
             "picture": "Img/Yasuko2.jpg",
             "headshot": "Img/Yasuko.PNG",
             "player": "MWD"
@@ -100,6 +106,7 @@
             "textBackgroundColor": "#9400D3",
             "textDark": false,
             "traits": "none",
+            "power" : "Biomancy",
             "picture": "Img/Suzu2.jpg",
             "headshot": "Img/Suzu.PNG",
             "player": "Zetsurin"

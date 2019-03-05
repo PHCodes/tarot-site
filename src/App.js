@@ -6,6 +6,7 @@ import ResultsSection from './ResultsSection';
 import HeadshotResult from './HeadshotResult';
 import { spring, AnimatedRoute } from 'react-router-transition';
 import Overview from './Overview';
+import Designer from './Designer';
 import {
   HashRouter as Router,
   Route,
@@ -71,6 +72,12 @@ class App extends Component {
       </div>
     )
 
+    const Designer2 = () => (
+      <div>
+        <Designer />
+      </div>
+    )
+
     const Topic = ({ match }) => (
       <div>
         <h3>{match.params.topicId}</h3>
@@ -115,6 +122,7 @@ class App extends Component {
             <header className="App-header">
               <Link to="/" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Overview</button></Link>
               <Link to="/roster" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Roster</button></Link>
+              <Link to="/designer" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Designer</button></Link>
 
             </header>
             <div className="App-body">
@@ -130,6 +138,12 @@ class App extends Component {
                 atActive={bounceTransition.atActive}
                 mapStyles={mapStyles}
                 className="route-wrapper" path="/roster" component={Roster} />
+              <AnimatedRoute
+                atEnter={bounceTransition.atEnter}
+                atLeave={bounceTransition.atLeave}
+                atActive={bounceTransition.atActive}
+                mapStyles={mapStyles} 
+                className="route-wrapper" path="/designer" component={Designer2} />
               {resultPages}
             </div>
           </div>
