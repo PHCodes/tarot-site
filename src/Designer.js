@@ -6,9 +6,19 @@ import HeadshotResult from './HeadshotResult';
 
 class Designer extends Component {
     //Should have item in props.
+    constructor(props){
+        super(props)
+        this.state = {
+            preppedCode : null,
+            showCode: false
+        }
+    }
 
-    componentDidUpdate() {
-        document.getElementById('main-color').style.backgroundColor = '#61dafb';
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.preppedCode){
+            if(!(!prevState.showCode && this.state.showCode))
+            document.getElementById('main-color').style.backgroundColor = '#61dafb';
+        }
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
             button.style.backgroundColor = '#61dafb';
@@ -23,21 +33,33 @@ class Designer extends Component {
         event.preventDefault();
         let filterNamesAndValues = [];
         let contentToSearch = false;
+        let newPreppedCode = "{";
         let example = {};
         for (var exampleFieldToRender of event.currentTarget) {
             if (exampleFieldToRender.type == "text") {
-                if (exampleFieldToRender.value) {
-                    example[exampleFieldToRender.name.toLowerCase().replace(/ /g, "")] = exampleFieldToRender.value;
-                } else {
-                    example[exampleFieldToRender.name.toLowerCase().replace(/ /g, "")] = 'N/A';
-
+                if(exampleFieldToRender.value){
+                    const preppedValue = exampleFieldToRender.name.toLowerCase().replace(/ /g, "");
+                    example[preppedValue] = exampleFieldToRender.value;
+                    newPreppedCode = newPreppedCode + `\"${preppedValue}\" : \"${exampleFieldToRender.value}\",\n`;
+                } else{
+                    const preppedValue = exampleFieldToRender.name.toLowerCase().replace(/ /g, "");
+                    example[preppedValue] = 'N/A';            
+                    newPreppedCode = newPreppedCode + `\"${preppedValue}\" : \"N\\A\",\n`;
                 }
             }
         }
+        newPreppedCode = newPreppedCode.substring(0, newPreppedCode.length - 2);
+        newPreppedCode = newPreppedCode + `\n}`
+        this.setState({preppedCode: newPreppedCode});
 
-        ReactDOM.render(<HeadshotResult item={example} />, document.getElementById('example'))
+        ReactDOM.render(<HeadshotResult item={example} leftLink={() => {return null}} rightLink={() => {return null}}/>, document.getElementById('example'))
 
         return false;
+    }
+
+    selectCode = () => {
+        document.getElementById("code-area").focus();
+        document.getElementById("code-area").select();
     }
 
     render() {
@@ -68,6 +90,9 @@ class Designer extends Component {
                             {objectsForInformation}
                             <input className="basic-button example-button" type="submit" value="Submit" />
                         </form>
+                        <button id="display-code" onClick={() => this.setState({showCode : true})} className={"basic-button" + (!this.state.showCode ? "" : " disappear-button")} style={{'display' : this.state.preppedCode ? 'flex' : 'none'}}>Generate Code</button>
+                    <textarea readOnly id="code-area" style={{'display' : this.state.showCode ? 'flex' : 'none'}} className="prepped-code" value={this.state.preppedCode}></textarea>
+                    <button id="select-text" style={{'display' : this.state.showCode ? 'flex' : 'none'}} className="basic-button" onClick={() => this.selectCode()}>Select Code</button>
                     </span>
                 </span>
 

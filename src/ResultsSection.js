@@ -17,7 +17,11 @@ class ResultsSection extends Component {
     }
 
     componentDidMount() {
-        this.checkFiltered(this.props.items)
+        this.checkFiltered(this.props.items);
+        if (this.props.haveSearched) {
+            this.setState({ haveSearched: true });
+        }
+        this.props.makeSearchFunctionAvailable(this.searchBySingleTrait);
     }
 
     inWords(num) {
@@ -47,7 +51,7 @@ class ResultsSection extends Component {
         if (contentToSearch) {
             for (var filter of filterNamesAndValues) {
                 if (filter[1]) {
-                    for (var item of itemsToFilterThrough) {
+                    for (let item of itemsToFilterThrough) {
                         for (var trait in item) {
                             if (trait == filter[0]) {
                                 if (item[trait].includes(filter[1])) {
@@ -64,13 +68,14 @@ class ResultsSection extends Component {
                 }
             }
         } else {
-            for (var item of itemsToFilterThrough) {
-                filterResults.push(item);
+            for (var memberOfAllItems of itemsToFilterThrough) {
+                filterResults.push(memberOfAllItems);
                 this.setState({ haveSearched: false });
             }
 
         }
         this.setState({ itemsToDisplay: filterResults });
+        return filterResults;
     }
 
     performFilter = (e) => {
@@ -89,14 +94,23 @@ class ResultsSection extends Component {
                 }
             }
         }
-        this.checkFiltered(this.props.items, filterNamesAndValues, contentToSearch)
+        setTimeout(() => {
+            let searchResults = this.checkFiltered(this.props.items, filterNamesAndValues, contentToSearch);
+            this.props.searchCompletedFunc(searchResults);
+        }, 500)
         return false;
+    }
+
+    searchBySingleTrait = (traitNameAndValue) => {
+        let searchResults = this.checkFiltered(this.props.items, traitNameAndValue, true);
+        this.props.searchCompletedFunc(searchResults);
     }
 
     clearSearch = (event) => {
         for (var fieldToClear of document.getElementsByClassName("filter-input")) {
             fieldToClear.value = "";
         }
+        this.props.searchCompletedFunc([]);
     }
 
     closeNav() {
@@ -106,28 +120,31 @@ class ResultsSection extends Component {
         let x = 0;
         let listPreppedForRender = [];
 
-        listPreppedForRender.push(
-            <div id="mobile-menu" className="mobile-menu">
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                    <span class="filter-header" id="search">Filter</span>
-                    <form onSubmit={(event) => this.handleFilter(event)} autoComplete="off" id="filter-form">
-                        <span class="filter-text">Name</span><br />
-                        <input class="filter-input" type="text" name="name" /><br />
-                        <span class="filter-text" >Race</span><br />
-                        <input class="filter-input" type="text" name="race" />
-                        <span class="filter-text" >Organization</span><br />
-                        <input class="filter-input" type="text" name="organization" /><br />
-                        <span class="filter-text" >Player</span><br />
-                        <input class="filter-input" type="text" name="player" /><br />
-                        <br />
-                        <input className="filter-button" type="submit" value="Submit" />
-                        {this.state.haveSearched ? <input className="filter-button" type="submit" value="Cancel Search" onClick={(event) => this.clearSearch(event)} /> : ''}
-                    </form>
+        if (this.props.mainSection) {
+
+            listPreppedForRender.push(
+                <div id="mobile-menu" className="mobile-menu">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
+                        <span class="filter-header" id="search">Filter</span>
+                        <form onSubmit={(event) => this.handleFilter(event)} autoComplete="off" id="filter-form">
+                            <span class="filter-text">Name</span><br />
+                            <input class="filter-input" type="text" name="name" /><br />
+                            <span class="filter-text" >Race</span><br />
+                            <input class="filter-input" type="text" name="race" />
+                            <span class="filter-text" >Organization</span><br />
+                            <input class="filter-input" type="text" name="organization" /><br />
+                            <span class="filter-text" >Player</span><br />
+                            <input class="filter-input" type="text" name="player" /><br />
+                            <br />
+                            <input className="filter-button" type="submit" value="Submit" />
+                            {this.state.haveSearched ? <input className="filter-button" type="submit" value="Cancel Search" onClick={(event) => this.clearSearch(event)} /> : ''}
+                        </form>
+                    </div>
+                    <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={() => this.openNav()}>&#9776;</span>
                 </div>
-                <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={() => this.openNav()}>&#9776;</span>
-            </div>
-        )
+            )
+        }
 
         if (this.state.itemsToDisplay.length > 0) {
             for (var item of this.state.itemsToDisplay) {

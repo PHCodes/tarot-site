@@ -110,7 +110,51 @@
             "picture": "Img/Suzu2.jpg",
             "headshot": "Img/Suzu.PNG",
             "player": "Zetsurin"
-        }
+        },
+
+        {"name" : "Kabuto Hebi",
+            "title" : "The Doctor",
+            "race" : "Corrupted Angel Iramasha",
+            "organization" : "Hebi Laboratories",
+            "primarycolor" : "purple",
+            "secondarycolor" : "yellow",
+            "textbackgroundcolor" : "gray",
+            "textdark" : true,
+            "traits" : "none",
+            "power" : "Biomancy, Reanimation",
+            "picture" : "http://2.bp.blogspot.com/-jzAgaSrk7oY/Uq44IrH3dxI/AAAAAAAAAKA/JsbIdlWr120/s1600/Yakushi.Kabuto.full.1346175.jpg",
+            "headshot" : "https://static.zerochan.net/Yakushi.Kabuto.full.1001504.jpg",
+            "player" : "JJ"
+        },
+
+        {"name" : "Colin Washi",
+            "title" : "Eagle God",
+            "race" : "Vizard",
+            "organization" : "Lux Oriori",
+            "primarycolor" : "lime",
+            "secondarycolor" : "green",
+            "textbackgroundcolor" : "whtie",
+            "textdark" : true,
+            "traits" : "none",
+            "power" : "Feather Blades, Raw Speed",
+            "picture" : "https://tse1.mm.bing.net/th?id=OIP.M08E1U4i6uQv0ObYewqPYwHaKX&pid=Api",
+            "headshot" : "http://fc07.deviantart.net/fs16/f/2007/163/c/b/DNAngel__Krad_by_kurai88.jpg",
+            "player" : "JJ"
+            },
+            {"name" : "Moonie",
+                "title" : "Moon Iramasha",
+                "race" : "Nature Iramasha",
+                "organization" : "Lux Oriori",
+                "primarycolor" : "brown",
+                "secondarycolor" : "black",
+                "textbackgroundcolor" : "gray",
+                "textdark" : false,
+                "traits" : "None",
+                "power" : "Gravity, Friction",
+                "picture" : "http://25.media.tumblr.com/tumblr_lt3pz9DKTe1qbs05mo1_500.png",
+                "headshot" : "https://tse2.mm.bing.net/th?id=OIP.1kO0rHxVorn7Lz7YCdFqXAHaFV&pid=Api",
+                "player" : "JJ"
+                }
 
     ]
 }
