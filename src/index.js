@@ -48,8 +48,8 @@ profileFinishedSet.map(function(itemToCheck){
             name: itemToCheck.player,
             picture: itemToCheck.picture,
             headshot: itemToCheck.headshot,
-            textbackgroundcolor: '#61dafb',
-            textdark: true,
+            textbackgroundcolor: '#1b5181',
+            shouldhaveblacktext: false,
             items: []
         }
         ownerArray.push(dataToAddTo);

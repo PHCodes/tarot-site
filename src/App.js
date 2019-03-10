@@ -85,7 +85,7 @@ class App extends Component {
     )
 
     const Roster = ({ match }) => (
-      <div>
+      <div className="roster-page">
         <h2>Roster</h2>
         <ResultsSection key={"roster"} mainSection={true} match={match} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false}items={this.state.searchedItemsList.length > 0 ? this.state.searchedItemsList : this.props.itemList} />
       </div>
@@ -99,7 +99,7 @@ class App extends Component {
 
     const Owners2 = ({ match }) => (
       <div>
-        <h2>Owners</h2>
+        <h2>Players</h2>
         <ResultsSection key={"owners"} match={match} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={this.props.ownerList} />
       </div>
     )

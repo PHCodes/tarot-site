@@ -44,32 +44,59 @@ class HeadshotResult extends Component {
         for (let button of buttonsToColor) {
             button.style.backgroundColor = this.props.item.secondarycolor;
         }
-        if (!this.props.item.textdark) {
+        if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false" || this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext == "no" || this.props.item.shouldhaveblacktext == "white") {
             let textToColor = document.getElementsByClassName('info-field');
-            for (let text of textToColor) {
-                text.style.color = 'white';
+            if (!this.props.item.textbackgroundcolor.match(/^(?:white|#fff(?:fff)?|rgba?\(\s*255\s*,\s*255\s*,\s*255\s*(?:,\s*1\s*)?\))$/i)) {
+                for (let text of textToColor) {
+                    text.style.color = 'white';
+                }
+            }
+        } else {
+            let textToColor = document.getElementsByClassName('info-field');
+            if (this.props.item.textbackgroundcolor.match(/^(?:black|#000(?:000)?|rgba?\(\s*0\s*,\s*0\s*,\s*0\s*(?:,\s*1\s*)?\))$/i)) {
+                for (let text of textToColor) {
+                    text.style.color = 'white';
+                }
             }
         }
-        if (!this.props.item.textdark) {
+        if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false"|| this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext== "no") {
             let textToColor = document.getElementsByClassName('basic-button');
             for (let text of textToColor) {
                 text.style.color = 'white';
             }
-        }
-        let newImg = document.createElement('img');
-        newImg.src = this.props.item.picture;
-        console.log(newImg.height);
-        console.log(newImg.width);
-        console.log(newImg);
-        if (newImg.width > newImg.height) {
-            let currentImage = document.getElementById('img-' + this.props.item.name);
-            currentImage.classList.replace('relevant-image-vertical', 'relevant-image-horizontal');
 
+        }
+        let newImg = new Image();
+        newImg.src = this.props.item.picture;
+        newImg.onload =() => {
+
+            console.log(newImg.height);
+            console.log(newImg.width);
+            console.log(newImg);
+            if (document.getElementById('inner-info-' + this.props.item.name)) {
+                if (newImg.width > newImg.height) {
+                    let currentImage = document.getElementById('img-' + this.props.item.name);
+                    currentImage.classList.replace('relevant-image-vertical', 'relevant-image-horizontal');
+                    if (Math.abs(newImg.width-newImg.height) < 50){
+                        let currentImage = document.getElementById('img-' + this.props.item.name);
+                        currentImage.classList.replace('relevant-image-horizontal', 'relevant-image-square');
+                        
+                    }
+                }
+                else if (Math.abs(newImg.width-newImg.height) < 50){
+                    let currentImage = document.getElementById('img-' + this.props.item.name);
+                    currentImage.classList.replace('relevant-image-vertical', 'relevant-image-square');
+                    
+                }
+            }
         }
     }
 
     componentDidMount() {
         this.reload();
+        let scroller = document.getElementById("main-color");
+        
+        scroller.scrollTop = 0;
         let container = document.getElementById("full-page" + this.props.item.name);
         this.leftLinkButton = document.getElementById('leftLink-' + this.props.item.name);
         this.rightLinkButton = document.getElementById('rightLink-' + this.props.item.name);
@@ -83,12 +110,12 @@ class HeadshotResult extends Component {
 
     componentDidUpdate() {
         this.reload();
-        document.getElementById('main-color').style.backgroundColor = '#61dafb';
+        document.getElementById('main-color').style.backgroundColor = '#1b5181';
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
-            button.style.backgroundColor = '#61dafb';
+            button.style.backgroundColor = '#1b5181';
         }
-        if (!this.props.item.textdark) {
+        if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false" || this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext == "no") {
             let textToColor = document.getElementsByClassName('basic-button');
             for (let text of textToColor) {
                 text.style.color = 'black';
@@ -131,21 +158,34 @@ class HeadshotResult extends Component {
             rightLinkButton = <Link id={"rightLink-" + this.props.item.name} to={this.props.rightLink(this.props.item.name)} style={{ textDecoration: 'none' }}><div className="link-container right-link"></div><div className="right-link side-link"></div></Link>
         }
         let setOfValues = [];
+        let applicationLinkVal = null;
         for (let trait in this.props.item) {
-            if (trait != "primarycolor" && trait != "secondarycolor" && trait != "textbackgroundcolor" && trait != "textdark" && trait != "picture" && trait != "headshot" && trait != "items") {
-                setOfValues.push(
-                    <div className="info-field">
-                        <br />
-                        <span style={{ 'display': 'inline-flex' }}>{this.capitalizeFirstLetter(trait) + ': '}</span>
-                        {(this.props.item[trait.toString()] ? <span style={{ 'display': 'inherit', 'cursor': 'pointer' }} onClick={(filter, name) => this.funcForTraitSearch(trait.toString(), this.props.item[trait.toString()])} >{this.props.item[trait.toString()]}</span> : <span>'N/A'</span>)}
-                    </div>
-                );
+            if (trait != "primarycolor" && trait != "secondarycolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items") {
+                if(trait == "applicationlink"){
+                    applicationLinkVal = (
+                        <div className="info-field">
+                            <br />
+                            {<a style={{ 'cursor': 'pointer' }} target="_self" style={{ color: "inherit", fontSize:"18px"}} href={this.props.item[trait.toString()]}>{this.props.item.name + "'s Application"}</a>}
+                            <br />
+                        </div>
+                    );
+                } else{
+                    setOfValues.push(
+                        <div className="info-field">
+                            <br />
+                            <span style={{ }}>{this.capitalizeFirstLetter(trait) + ': '}</span>
+                            {(this.props.item[trait.toString()] ? <span style={{ 'cursor': 'pointer' }} onClick={(filter, name) => this.funcForTraitSearch(trait.toString(), this.props.item[trait.toString()])} >{this.props.item[trait.toString()]}</span> : <span>'N/A'</span>)}
+                        </div>
+                    );
+                }
             } else if (trait == "items") {
                 setOfValues.push(<div className="info-field">
                     <br />
                     {(this.props.item[trait.toString()] ? <span style={{ 'display': 'inline-block', 'cursor': 'pointer' }} >{this.props.item[trait]}</span> : <span>'N/A'</span>)}
                 </div>);
-
+            }
+            if(applicationLinkVal){
+                setOfValues.push(applicationLinkVal);
             }
         }
 

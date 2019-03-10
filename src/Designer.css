@@ -106,6 +106,14 @@
     text-align: center;
 }
 
+.designer-select{
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+    
+}
+
 .example-button{
     margin-top: 3vh;
     margin-bottom: 2vh;

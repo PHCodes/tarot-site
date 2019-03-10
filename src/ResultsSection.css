@@ -37,12 +37,13 @@
     }
     
     .filter-text {
-        padding: 1vh 2vw;
+        padding: 0vh 2vw;
+        margin-bottom: -2vh;
+        margin-top: 1vh;
         text-decoration: none;
         font-size: 14px;
-        float: left;
-        color: white;
         display: flex;
+        color: white;
     }
     
     .filter-header:hover {

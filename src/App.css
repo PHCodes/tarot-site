@@ -1,8 +1,10 @@
 .App {
   text-align: center;
-  background-color: #61dafb;
+  background-color: #1b5181;
   height: 100vh;
+  width: 100vw;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -13,24 +15,29 @@
 .App-header {
   position: sticky;
   z-index: 800;
-  width: 100%;
+  width: 100vw;
+  height: 5vh;
   top: 0;
-  background-color: #282c34;
-  min-height: 5vh;
+  background-color: #151515;
+  min-height: 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow-x: hidden;
 }
 
 .basic-button{
   color: black;
   text-decoration: none;
-  background-color: #61dafb;
+  background-color: #1b5181;
   border-color: #754fa0;
-  border-radius: 5vh;
+  margin-right: 1.5vw;
+  padding: .5vh 1vw;
+  cursor: pointer;
+  border-radius: 1vh;
   font-weight: 600;
   justify-content: center;
 }
@@ -42,14 +49,35 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #1b5181;
 }
 
 .App-body{
   position: relative;
+  overflow-y: visible;
   z-index: 700;
-  background-color: #61dafb;
-  margin-top: 5vh;
+  background-color: #1b5181;
+  margin-top: 1vh;
+}
+
+#main-color::-webkit-scrollbar {
+  width: 1.5vw;
+  background-color: yellow;
+  border-radius: 20vw;
+}
+
+#main-color::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20vw;
+}
+
+#main-color::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.roster-page{
+  overflow-x: hidden;
 }
 
 @keyframes App-logo-spin {

@@ -17,6 +17,10 @@ class ResultsSection extends Component {
     }
 
     componentDidMount() {
+        
+        let scroller = document.getElementById("main-color");
+        
+        scroller.scrollTop = 0;
         this.checkFiltered(this.props.items);
         if (this.props.haveSearched) {
             this.setState({ haveSearched: true });
@@ -54,7 +58,7 @@ class ResultsSection extends Component {
                     for (let item of itemsToFilterThrough) {
                         for (var trait in item) {
                             if (trait == filter[0]) {
-                                if (item[trait].includes(filter[1])) {
+                                if (item[trait].toLowerCase().includes(filter[1])) {
                                     if (!filterResults.includes(item)) {
                                         filterResults.push(item);
                                     }
@@ -88,7 +92,7 @@ class ResultsSection extends Component {
         let contentToSearch = false;
         for (var fieldToSearch of event.currentTarget) {
             if (fieldToSearch.type == "text") {
-                filterNamesAndValues.push([fieldToSearch.name, fieldToSearch.value]);
+                filterNamesAndValues.push([fieldToSearch.name, fieldToSearch.value.toLowerCase()]);
                 if (fieldToSearch.value) {
                     contentToSearch = true;
                 }
@@ -126,14 +130,14 @@ class ResultsSection extends Component {
                 <div id="mobile-menu" className="mobile-menu">
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                        <span class="filter-header" id="search">Filter</span>
+                        <span class="filter-header" id="search">Search for Characters</span>
                         <form onSubmit={(event) => this.handleFilter(event)} autoComplete="off" id="filter-form">
                             <span class="filter-text">Name</span><br />
                             <input class="filter-input" type="text" name="name" /><br />
                             <span class="filter-text" >Race</span><br />
-                            <input class="filter-input" type="text" name="race" />
-                            <span class="filter-text" >Organization</span><br />
-                            <input class="filter-input" type="text" name="organization" /><br />
+                            <input class="filter-input" type="text" name="race" /><br />
+                            <span class="filter-text" >affiliation</span><br />
+                            <input class="filter-input" type="text" name="affiliation" /><br />
                             <span class="filter-text" >Player</span><br />
                             <input class="filter-input" type="text" name="player" /><br />
                             <br />
@@ -141,7 +145,7 @@ class ResultsSection extends Component {
                             {this.state.haveSearched ? <input className="filter-button" type="submit" value="Cancel Search" onClick={(event) => this.clearSearch(event)} /> : ''}
                         </form>
                     </div>
-                    <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={() => this.openNav()}>&#9776;</span>
+                    <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={() => this.openNav()}>&#128269;</span>
                 </div>
             )
         }
