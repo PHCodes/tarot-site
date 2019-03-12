@@ -69,6 +69,7 @@ flex-direction: column;
     width: 54vw;
     max-width: 60vh;
     z-index: 200;
+    margin-top: 2vh;
     border-radius: 8vh;
     border: 1px solid black;
     box-shadow: 2px 2px black;
@@ -78,7 +79,7 @@ flex-direction: column;
     display: flex;
     justify-content: left;
     flex-direction: column;
-    margin: 2vh;
+    margin: 4vh;
     align-items: center;
 }
 
@@ -148,4 +149,31 @@ flex-direction: column;
     height: 10vh;
     background-color: white;
     border: 10px solid white;
+}
+
+.owner-headshot{
+    display: block;
+    width: 100%;
+    justify-content: center;
+}
+
+.inactive {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%); 
+}
+
+.extra {
+    display: inline;
+}
+
+.owner-field{
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    color: black;
+
 }

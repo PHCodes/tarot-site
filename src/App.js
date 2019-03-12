@@ -15,18 +15,26 @@ import {
 
 class App extends Component {
 
-  
-  constructor(props){
+
+  constructor(props) {
     super(props);
     this.state = {
-      searchedItemsList : []
+      searchedItemsList: []
     }
   }
 
   searchCompleted = (searchResultItems) => {
-    this.setState({searchedItemsList : searchResultItems});
+    this.setState({ searchedItemsList: searchResultItems });
   }
-  
+
+  getItemByTrait = (trait, traitName) => {
+    if (traitName == "player") {
+      let ownerInfo = []
+      ownerInfo.push(this.props.ownerList.find(x => x.name === trait));
+      return <ResultsSection makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={ownerInfo} />
+    }
+  }
+
 
   searchFunctionAvailable = (searchFunc) => {
     this.searchFunctionByTrait = searchFunc;
@@ -87,13 +95,13 @@ class App extends Component {
     const Roster = ({ match }) => (
       <div className="roster-page">
         <h2>Roster</h2>
-        <ResultsSection key={"roster"} mainSection={true} match={match} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false}items={this.state.searchedItemsList.length > 0 ? this.state.searchedItemsList : this.props.itemList} />
+        <ResultsSection key={"roster"} mainSection={true} match={match} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={this.state.searchedItemsList.length > 0 ? this.state.searchedItemsList : this.props.itemList} />
       </div>
     )
 
-    const Designer2 = () => (
+    const Designer2 = ({ match }) => (
       <div>
-        <Designer />
+        <Designer key={"designer"} match={match} getItemByTrait={(trait, traitName) => this.getItemByTrait(trait, traitName)}/>
       </div>
     )
 
@@ -104,25 +112,41 @@ class App extends Component {
       </div>
     )
 
+    const InactiveRoster = ({ match }) => (
+      <div>
+        <h2>Inactive</h2>
+        <ResultsSection key={"owners"} match={match} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={this.props.inactiveList} />
+      </div>
+    )
+
     const Topic = ({ match }) => (
       <div>
         <h3>{match.params.topicId}</h3>
       </div>
     )
 
-    
+
     //For the linking lists.
     let fetchCurrentObj = (itemName) => {
-      for (let newItem of this.props.itemList){
-        if(newItem.name == itemName){
+      for (let newItem of this.props.itemList) {
+        if (newItem.name == itemName) {
           return newItem;
         }
       }
     }
-    
+
     //For the linking lists.
     let fetchCurrentObjOwner = (itemName) => {
       for (let newItem of this.props.ownerList) {
+        if (newItem.name == itemName) {
+          return newItem;
+        }
+      }
+    }
+
+    //For the other lists.
+    let fetchCurrentObjInactive = (itemName) => {
+      for (let newItem of this.props.inactiveList) {
         if (newItem.name == itemName) {
           return newItem;
         }
@@ -133,7 +157,7 @@ class App extends Component {
     let resultPages = []
     let x = 0;
 
-    
+
     for (let item of this.props.ownerList) {
       x = x + 1;
       let currentLink = `/${item.name}`;
@@ -173,28 +197,28 @@ class App extends Component {
           for (let ownedItem of owner.items) {
             itemList.push(ownedItem);
           }
-          owner.items = <ResultsSection makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={itemList} />
+          owner.items = <ResultsSection middleSection={true} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={itemList} />
         }
       }
     }
 
 
-     for (let item of this.props.itemList) {
-      x = x+1;
+    for (let item of this.props.itemList) {
+      x = x + 1;
       let currentLink = `/${item.name}`;
 
       let getLeftLink = (item) => {
         let leftLink = null;
         let correctObj = fetchCurrentObj(item);
         let x = this.props.itemList.lastIndexOf(correctObj);
-        if(this.state.searchedItemsList.length > 0){
+        if (this.state.searchedItemsList.length > 0) {
           x = this.state.searchedItemsList.lastIndexOf(correctObj);
-          if(this.state.searchedItemsList[x-1]){
-            leftLink = `/${this.state.searchedItemsList[x-1].name}`;
+          if (this.state.searchedItemsList[x - 1]) {
+            leftLink = `/${this.state.searchedItemsList[x - 1].name}`;
           }
-        }else{
-          if(this.props.itemList[x-1]){
-            leftLink = `/${this.props.itemList[x-1].name}`;
+        } else {
+          if (this.props.itemList[x - 1]) {
+            leftLink = `/${this.props.itemList[x - 1].name}`;
           }
         }
         return leftLink;
@@ -204,14 +228,14 @@ class App extends Component {
         let rightLink = null;
         let correctObj = fetchCurrentObj(item);
         let x = this.props.itemList.lastIndexOf(correctObj);
-        if(this.state.searchedItemsList.length > 0){
+        if (this.state.searchedItemsList.length > 0) {
           x = this.state.searchedItemsList.lastIndexOf(correctObj);
-          if(this.state.searchedItemsList[x+1]){
-            rightLink = `/${this.state.searchedItemsList[x+1].name}`;
+          if (this.state.searchedItemsList[x + 1]) {
+            rightLink = `/${this.state.searchedItemsList[x + 1].name}`;
           }
-        }else{
-          if(this.props.itemList[x+1]){
-            rightLink = `/${this.props.itemList[x+1].name}`;
+        } else {
+          if (this.props.itemList[x + 1]) {
+            rightLink = `/${this.props.itemList[x + 1].name}`;
           }
         }
         return rightLink;
@@ -221,9 +245,57 @@ class App extends Component {
         atEnter={bounceTransition.atEnter}
         atLeave={bounceTransition.atLeave}
         atActive={bounceTransition.atActive}
-        mapStyles={mapStyles} 
-        className="route-wrapper"  path={currentLink} component={() => <HeadshotResult item={item} searchBySingleTrait={(traitNameAndValue) => this.searchFunctionByTrait(traitNameAndValue)}leftLink={(item) => getLeftLink(item)} rightLink={(item) => getRightLink(item)}/>} />);
+        mapStyles={mapStyles}
+        className="route-wrapper" path={currentLink} component={() => <HeadshotResult item={item} getOwner={(trait, traitName) => this.getItemByTrait(trait, traitName)} searchBySingleTrait={(traitNameAndValue) => this.searchFunctionByTrait(traitNameAndValue)} leftLink={(item) => getLeftLink(item)} rightLink={(item) => getRightLink(item)} />} />);
+    }
+
+
+    for (let item of this.props.inactiveList) {
+      x = x + 1;
+      let currentLink = `/${item.name}`;
+
+      let getLeftLink = (item) => {
+        let leftLink = null;
+        let correctObj = fetchCurrentObjInactive(item);
+        let x = this.props.inactiveList.lastIndexOf(correctObj);
+        if (this.state.searchedItemsList.length > 0) {
+          x = this.state.searchedItemsList.lastIndexOf(correctObj);
+          if (this.state.searchedItemsList[x - 1]) {
+            leftLink = `/${this.state.searchedItemsList[x - 1].name}`;
+          }
+        } else {
+          if (this.props.inactiveList[x - 1]) {
+            leftLink = `/${this.props.inactiveList[x - 1].name}`;
+          }
+        }
+        return leftLink;
       }
+
+      
+    let getRightLink = (item) => {
+      let rightLink = null;
+      let correctObj = fetchCurrentObjInactive(item);
+      let x = this.props.inactiveList.lastIndexOf(correctObj);
+      if (this.state.searchedItemsList.length > 0) {
+        x = this.state.searchedItemsList.lastIndexOf(correctObj);
+        if (this.state.searchedItemsList[x + 1]) {
+          rightLink = `/${this.state.searchedItemsList[x + 1].name}`;
+        }
+      } else {
+        if (this.props.inactiveList[x + 1]) {
+          rightLink = `/${this.props.inactiveList[x + 1].name}`;
+        }
+      }
+      return rightLink;
+    }
+
+      resultPages.push(<AnimatedRoute
+        atEnter={bounceTransition.atEnter}
+        atLeave={bounceTransition.atLeave}
+        atActive={bounceTransition.atActive}
+        mapStyles={mapStyles}
+        className="route-wrapper" path={currentLink} component={() => <HeadshotResult item={item} getOwner={(trait, traitName) => this.getItemByTrait(trait, traitName)} searchBySingleTrait={(traitNameAndValue) => this.searchFunctionByTrait(traitNameAndValue)} leftLink={(item) => getLeftLink(item)} rightLink={(item) => getRightLink(item)} />} />);
+    }
 
     return (
 
@@ -235,6 +307,7 @@ class App extends Component {
               <Link to="/roster" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Roster</button></Link>
               <Link to="/designer" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Designer</button></Link>
               <Link to="/players" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Players</button></Link>
+              <Link to="/inactive" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Inactive</button></Link>
 
             </header>
             <div className="App-body">
@@ -254,15 +327,22 @@ class App extends Component {
                 atEnter={bounceTransition.atEnter}
                 atLeave={bounceTransition.atLeave}
                 atActive={bounceTransition.atActive}
-                mapStyles={mapStyles} 
+                mapStyles={mapStyles}
                 className="route-wrapper" path="/designer" component={Designer2} />
-                
-                <AnimatedRoute
-                  atEnter={bounceTransition.atEnter}
-                  atLeave={bounceTransition.atLeave}
-                  atActive={bounceTransition.atActive}
-                  mapStyles={mapStyles}
-                  className="route-wrapper" path="/players" component={Owners2} />
+
+              <AnimatedRoute
+                atEnter={bounceTransition.atEnter}
+                atLeave={bounceTransition.atLeave}
+                atActive={bounceTransition.atActive}
+                mapStyles={mapStyles}
+                className="route-wrapper" path="/players" component={Owners2} />
+
+              <AnimatedRoute
+                atEnter={bounceTransition.atEnter}
+                atLeave={bounceTransition.atLeave}
+                atActive={bounceTransition.atActive}
+                mapStyles={mapStyles}
+                className="route-wrapper" path="/inactive" component={InactiveRoster} />
               {resultPages}
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './Designer.css';
-import HeadshotResult from './HeadshotResult';
+import HeadshotResult from './HeadshotResultDesigner';
 
 class Designer extends Component {
     //Should have item in props.
@@ -20,11 +20,12 @@ class Designer extends Component {
         scroller.scrollTop = 0;
     }
 
+    componentWillUnmount() {          
+        document.getElementById('main-color').style.backgroundColor = '#1b5181';
+        
+    }
+
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.preppedCode) {
-            if (!(!prevState.showCode && this.state.showCode))
-                document.getElementById('main-color').style.backgroundColor = '#1b5181';
-        }
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
             button.style.backgroundColor = '#1b5181';
@@ -56,9 +57,10 @@ class Designer extends Component {
         }
         newPreppedCode = newPreppedCode.substring(0, newPreppedCode.length - 2);
         newPreppedCode = newPreppedCode + `\n}`
+        this.setState({ presentSetup: example});
         this.setState({ preppedCode: newPreppedCode });
 
-        ReactDOM.render(<HeadshotResult item={example} leftLink={() => { return null }} rightLink={() => { return null }} />, document.getElementById('example'))
+        ReactDOM.render(<HeadshotResult item={example} match={this.props.match} tempField={true} getOwner={(trait, traitName) => this.props.getItemByTrait(trait, traitName)} leftLink={() => { return null }} rightLink={() => { return null }} />, document.getElementById('example'))
 
         return false;
     }
@@ -112,6 +114,7 @@ class Designer extends Component {
             }}
 
         return (
+            <Router>
             <div>
                 <span className="designer-page-outer">
                     <span className="designer-page-inner">
@@ -128,6 +131,7 @@ class Designer extends Component {
                 <div id="example">
                 </div>
             </div>
+            </Router>
         );
     }
 }

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './HeadshotResult.css';
 
-class HeadshotResult extends Component {
+class HeadshotResultDesigner extends Component {
 
     leftLinkButton;
     rightLinkButton;
@@ -110,7 +110,6 @@ class HeadshotResult extends Component {
 
     componentDidUpdate() {
         this.reload();
-        document.getElementById('main-color').style.backgroundColor = '#1b5181';
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
             button.style.backgroundColor = '#1b5181';
@@ -124,7 +123,9 @@ class HeadshotResult extends Component {
     }
 
 
-    componentWillUnmount() {
+    componentWillUnmount() {   
+            document.getElementById('main-color').style.backgroundColor = '#1b5181';
+        
         let container = document.getElementById("full-page" + this.props.item.name);
         container.removeEventListener('touchstart', this.lock);
         container.removeEventListener('touchend', this.move);
@@ -228,4 +229,4 @@ class HeadshotResult extends Component {
     }
 }
 
-export default HeadshotResult; 
+export default HeadshotResultDesigner; 

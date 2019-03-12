@@ -6,7 +6,7 @@ import './Headshot.css';
 class Headshot extends Component {
     constructor(props) {
         super(props);
-        let itemsToDisplayInHeadshot = ["name", "title", "race", "affiliation", "power"];
+        let itemsToDisplayInHeadshot = ["name", "title", "race", "organization", "power"];
         let renderedVersion = [];
         renderedVersion.push(<div className="filler"></div>);
         for(var currentItem of itemsToDisplayInHeadshot){
@@ -45,7 +45,6 @@ class Headshot extends Component {
             return (e.offsetHeight < e.scrollHeight);
         }
         let renderedVersion = [];
-        renderedVersion.push(<div className="filler"></div>);
         for(var currentItem of this.state.itemsToDisplay){
             renderedVersion.push(
                 <Fragment>{this.props.item[currentItem]} <br /></Fragment>);
@@ -80,13 +79,18 @@ class Headshot extends Component {
 
             }
         }, 500);
+        
+        var inactive = '';
+        if(this.props.item.inactive){
+            inactive = "-inactive";
+        }
 
         return (
-            <span className="headshot">
+            <span className={"headshot"+inactive}>
                 <span id={"name-box-" + this.props.item.name} className="name-box invisible" style={{ 'background-color': this.props.item.textbackgroundcolor }}>
                     {this.state.textOfObject}
                 </span>
-                <img className="image-box" id="imgFull" src={this.props.item.headshot} />
+                <img className={"image-box"+inactive}  id="imgFull" src={this.props.item.headshot} />
             </span>
         );
     }

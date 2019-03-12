@@ -136,8 +136,8 @@ class ResultsSection extends Component {
                             <input class="filter-input" type="text" name="name" /><br />
                             <span class="filter-text" >Race</span><br />
                             <input class="filter-input" type="text" name="race" /><br />
-                            <span class="filter-text" >affiliation</span><br />
-                            <input class="filter-input" type="text" name="affiliation" /><br />
+                            <span class="filter-text" >Affiliation</span><br />
+                            <input class="filter-input" type="text" name="Affiliation" /><br />
                             <span class="filter-text" >Player</span><br />
                             <input class="filter-input" type="text" name="player" /><br />
                             <br />
