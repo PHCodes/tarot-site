@@ -6,7 +6,7 @@ import './Headshot.css';
 class Headshot extends Component {
     constructor(props) {
         super(props);
-        let itemsToDisplayInHeadshot = ["name", "title", "race", "organization", "power"];
+        let itemsToDisplayInHeadshot = ["name", "title", "race", "affiliation", "power"];
         let renderedVersion = [];
         renderedVersion.push(<div className="filler"></div>);
         for(var currentItem of itemsToDisplayInHeadshot){

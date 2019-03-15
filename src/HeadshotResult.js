@@ -59,7 +59,7 @@ class HeadshotResult extends Component {
                 }
             }
         }
-        if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false"|| this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext== "no") {
+        if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false" || this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext == "no") {
             let textToColor = document.getElementsByClassName('basic-button');
             for (let text of textToColor) {
                 text.style.color = 'white';
@@ -68,7 +68,7 @@ class HeadshotResult extends Component {
         }
         let newImg = new Image();
         newImg.src = this.props.item.picture;
-        newImg.onload =() => {
+        newImg.onload = () => {
 
             console.log(newImg.height);
             console.log(newImg.width);
@@ -77,16 +77,16 @@ class HeadshotResult extends Component {
                 if (newImg.width > newImg.height) {
                     let currentImage = document.getElementById('img-' + this.props.item.name);
                     currentImage.classList.replace('relevant-image-vertical', 'relevant-image-horizontal');
-                    if (Math.abs(newImg.width-newImg.height) < 50){
+                    if (Math.abs(newImg.width - newImg.height) < 50) {
                         let currentImage = document.getElementById('img-' + this.props.item.name);
                         currentImage.classList.replace('relevant-image-horizontal', 'relevant-image-square');
-                        
+
                     }
                 }
-                else if (Math.abs(newImg.width-newImg.height) < 50){
+                else if (Math.abs(newImg.width - newImg.height) < 50) {
                     let currentImage = document.getElementById('img-' + this.props.item.name);
                     currentImage.classList.replace('relevant-image-vertical', 'relevant-image-square');
-                    
+
                 }
             }
         }
@@ -95,7 +95,7 @@ class HeadshotResult extends Component {
     componentDidMount() {
         this.reload();
         let scroller = document.getElementById("main-color");
-        
+
         scroller.scrollTop = 0;
         let container = document.getElementById("full-page" + this.props.item.name);
         this.leftLinkButton = document.getElementById('leftLink-' + this.props.item.name);
@@ -161,44 +161,52 @@ class HeadshotResult extends Component {
         let setOfValues = [];
         let applicationLinkVal = null;
         for (let trait in this.props.item) {
-            if (trait != "inactive" && trait != "primarycolor" && trait != "secondarycolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
-                if(trait == "applicationlink"){
+            if (trait != "related" && trait != "inactive" && trait != "primarycolor" && trait != "secondarycolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
+                if (trait == "applicationlink") {
                     applicationLinkVal = (
                         <div className="info-field">
                             <br />
-                            {<a style={{ 'cursor': 'pointer' }} target="_self" style={{ color: "inherit", fontSize:"18px"}} href={this.props.item[trait.toString()]}>{this.props.item.name + "'s Application"}</a>}
+                            {<a style={{ 'cursor': 'pointer' }} target="_self" style={{ color: "inherit", fontSize: "18px" }} href={this.props.item[trait.toString()]}>{this.props.item.name + "'s Application"}</a>}
                             <br />
                         </div>
                     );
-                } else{
+                } else {
+                    let getsSearchClick = trait=="affiliation" || trait=="race";
                     setOfValues.push(
                         <div className="info-field">
                             <br />
-                            <span style={{ }}>{this.capitalizeFirstLetter(trait) + ': '}</span>
-                            {(this.props.item[trait.toString()] ? <span style={{ 'cursor': 'pointer' }} onClick={(filter, name) => this.funcForTraitSearch(trait.toString(), this.props.item[trait.toString()])} >{this.props.item[trait.toString()]}</span> : <span>'N/A'</span>)}
+                            <span style={{}}>{this.capitalizeFirstLetter(trait) + ': '}</span>
+                            {(this.props.item[trait.toString()] ? <span style={getsSearchClick ? { 'cursor': 'pointer' } : null} onClick={getsSearchClick ? (filter, name) => this.funcForTraitSearch(trait.toString(), this.props.item[trait.toString()]) : () => {return null} }>{this.props.item[trait.toString()]}</span> : <span>'N/A'</span>)}
                         </div>
                     );
                 }
             } else if (trait == "items") {
                 setOfValues.push(<div className="info-field">
-                Characters:
+                    Characters:
                     <br />
                     {(this.props.item[trait.toString()] ? <span style={{ 'display': 'inline-block', 'cursor': 'pointer' }} >{this.props.item[trait]}</span> : <span>'N/A'</span>)}
                 </div>);
-            }else if(trait == "player"){
-                if(!this.props.tempField){
+            } else if (trait == "player") {
+                if (!this.props.tempField) {
                     setOfValues.push(<div className="owner-field ">
-                    <div><div>{this.capitalizeFirstLetter(trait) + ': '+ this.props.item[trait.toString()]}</div></div>
-                        <div className="owner-headshot">{ this.props.getOwner(this.props.item[trait], trait)}</div>
+                        <div><div>{this.capitalizeFirstLetter(trait) + ': ' + this.props.item[trait.toString()]}</div></div>
+                        <div className="owner-headshot">{this.props.getOwner(this.props.item[trait], trait)}</div>
                     </div>);
                 }
-            } else if(trait == "inactive"){
-                if(this.props.item[trait.toString()]){
+            } else if (trait == "related") {
+                let relatedElements = [];
+                relatedElements.push(<div className="owner-headshot">{this.props.getOwner(this.props.item[trait], trait)}</div>)
+                setOfValues.push(<div className="owner-field ">
+                    <div><div>{this.capitalizeFirstLetter(trait)}</div></div>
+                    {relatedElements};
+                </div>);
+            } else if (trait == "inactive") {
+                if (this.props.item[trait.toString()]) {
                     inactive = " inactive";
                 }
             }
         }
-        if(applicationLinkVal){
+        if (applicationLinkVal) {
             setOfValues.push(applicationLinkVal);
         }
 
@@ -215,7 +223,7 @@ class HeadshotResult extends Component {
                         <br />
                         <div className="text-field" id={'inner-info-' + this.props.item.name}>
 
-                                {setOfValues}
+                            {setOfValues}
 
                         </div>
                     </div>

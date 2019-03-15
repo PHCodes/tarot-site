@@ -21,11 +21,15 @@ let ownerArray = [];
 
 let inactiveArray = [];
 
+let incompleteArray = [];
+
 for (let x = 0; x < profileSet.length; x++) {
     if (!retiredPlayers.includes(profileSet[x].player)) {
 
         if (profileSet[x].inactive) {
             inactiveArray.push(profileSet[x]);
+        }else if(profileSet[x].incomplete){
+            incompleteArray.push(profileSet[x]);
         }else {
             profileFinishedSet.push(profileSet[x]);
         }
@@ -68,7 +72,8 @@ let setup = (itemToCheck) => {
 profileFinishedSet.map(function(result){setup(result) })
 
 inactiveArray.map(function(result){setup(result) })
-ReactDOM.render(<App itemList={profileFinishedSet} ownerList={ownerArray} inactiveList={inactiveArray} />, document.getElementById('root'));
+incompleteArray.map(function(result){setup(result)} )
+ReactDOM.render(<App itemList={profileFinishedSet} incompleteList={incompleteArray}ownerList={ownerArray} inactiveList={inactiveArray} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

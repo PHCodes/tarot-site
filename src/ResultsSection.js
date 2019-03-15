@@ -42,13 +42,6 @@ class ResultsSection extends Component {
         str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
         return str;
     }
-    openNav() {
-        if (document.getElementById("mySidenav").style.width == "0px" || !document.getElementById("mySidenav").style.width) {
-            document.getElementById("mySidenav").style.width = "50vw";
-        } else {
-            document.getElementById("mySidenav").style.width = "0px";
-        }
-    }
 
     checkFiltered = (itemsToFilterThrough, filterNamesAndValues, contentToSearch) => {
         let filterResults = [];
@@ -58,7 +51,7 @@ class ResultsSection extends Component {
                     for (let item of itemsToFilterThrough) {
                         for (var trait in item) {
                             if (trait == filter[0]) {
-                                if (item[trait].toLowerCase().includes(filter[1])) {
+                                if (item[trait].toString().toLowerCase().includes(filter[1].toLowerCase())) {
                                     if (!filterResults.includes(item)) {
                                         filterResults.push(item);
                                     }
@@ -117,6 +110,16 @@ class ResultsSection extends Component {
         this.props.searchCompletedFunc([]);
     }
 
+    openNav() {
+        if (document.getElementById("mySidenav").style.width == "0px" || !document.getElementById("mySidenav").style.width) {
+            document.getElementById("mySidenav").style.width = "50vw";
+            document.getElementById("first-selected").focus();
+            document.getElementById("first-selected").click();
+        } else {
+            document.getElementById("mySidenav").style.width = "0px";
+        }
+    }
+
     closeNav() {
         document.getElementById("mySidenav").style.width = "0px";
     }
@@ -133,11 +136,13 @@ class ResultsSection extends Component {
                         <span class="filter-header" id="search">Search for Characters</span>
                         <form onSubmit={(event) => this.handleFilter(event)} autoComplete="off" id="filter-form">
                             <span class="filter-text">Name</span><br />
-                            <input class="filter-input" type="text" name="name" /><br />
+                            <input class="filter-input" id="first-selected" type="text" name="name" /><br />
                             <span class="filter-text" >Race</span><br />
                             <input class="filter-input" type="text" name="race" /><br />
                             <span class="filter-text" >Affiliation</span><br />
                             <input class="filter-input" type="text" name="Affiliation" /><br />
+                            <span class="filter-text" >Related</span><br />
+                            <input class="filter-input" type="text" name="related" /><br />
                             <span class="filter-text" >Player</span><br />
                             <input class="filter-input" type="text" name="player" /><br />
                             <br />
@@ -146,6 +151,7 @@ class ResultsSection extends Component {
                         </form>
                     </div>
                     <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={() => this.openNav()}>&#128269;</span>
+                    {this.state.haveSearched ? <span style={{ fontSize: '30px', cursor: 'pointer', color: 'red'}} onClick={(event) => this.clearSearch(event)}>&#x2718;</span> : ''}
                 </div>
             )
         }

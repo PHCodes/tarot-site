@@ -28,11 +28,23 @@ class App extends Component {
   }
 
   getItemByTrait = (trait, traitName) => {
+    let relatedInfo = []
     if (traitName == "player") {
-      let ownerInfo = []
-      ownerInfo.push(this.props.ownerList.find(x => x.name === trait));
-      return <ResultsSection makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={ownerInfo} />
+      relatedInfo.push(this.props.ownerList.find(x => x.name === trait));} 
+    if (traitName == "related"){
+      for(let currentTrait of trait){
+        let itemToCheck = this.props.itemList.find(x => x.name === currentTrait);
+        if(itemToCheck){
+          relatedInfo.push(itemToCheck);
+        }
+        itemToCheck = this.props.inactiveList.find(x => x.name === currentTrait);
+        if(itemToCheck){
+          relatedInfo.push(itemToCheck);
+        }
+      }
     }
+    return <ResultsSection makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={relatedInfo} />
+  
   }
 
 
@@ -119,6 +131,13 @@ class App extends Component {
       </div>
     )
 
+    const IncompleteRoster = ({ match }) => (
+      <div>
+        <h2>Coming Soon!</h2>
+        <ResultsSection key={"owners"} match={match} makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={this.props.incompleteList} />
+      </div>
+    )
+
     const Topic = ({ match }) => (
       <div>
         <h3>{match.params.topicId}</h3>
@@ -147,6 +166,15 @@ class App extends Component {
     //For the other lists.
     let fetchCurrentObjInactive = (itemName) => {
       for (let newItem of this.props.inactiveList) {
+        if (newItem.name == itemName) {
+          return newItem;
+        }
+      }
+    }
+
+    //For the other lists.
+    let fetchCurrentObjIncomplete = (itemName) => {
+      for (let newItem of this.props.incompleteList) {
         if (newItem.name == itemName) {
           return newItem;
         }
@@ -297,6 +325,53 @@ class App extends Component {
         className="route-wrapper" path={currentLink} component={() => <HeadshotResult item={item} getOwner={(trait, traitName) => this.getItemByTrait(trait, traitName)} searchBySingleTrait={(traitNameAndValue) => this.searchFunctionByTrait(traitNameAndValue)} leftLink={(item) => getLeftLink(item)} rightLink={(item) => getRightLink(item)} />} />);
     }
 
+    for (let item of this.props.incompleteList) {
+      x = x + 1;
+      let currentLink = `/${item.name}`;
+
+      let getLeftLink = (item) => {
+        let leftLink = null;
+        let correctObj = fetchCurrentObjIncomplete(item);
+        let x = this.props.incompleteList.lastIndexOf(correctObj);
+        if (this.state.searchedItemsList.length > 0) {
+          x = this.state.searchedItemsList.lastIndexOf(correctObj);
+          if (this.state.searchedItemsList[x - 1]) {
+            leftLink = `/${this.state.searchedItemsList[x - 1].name}`;
+          }
+        } else {
+          if (this.props.incompleteList[x - 1]) {
+            leftLink = `/${this.props.incompleteList[x - 1].name}`;
+          }
+        }
+        return leftLink;
+      }
+
+      
+    let getRightLink = (item) => {
+      let rightLink = null;
+      let correctObj = fetchCurrentObjIncomplete(item);
+      let x = this.props.incompleteList.lastIndexOf(correctObj);
+      if (this.state.searchedItemsList.length > 0) {
+        x = this.state.searchedItemsList.lastIndexOf(correctObj);
+        if (this.state.searchedItemsList[x + 1]) {
+          rightLink = `/${this.state.searchedItemsList[x + 1].name}`;
+        }
+      } else {
+        if (this.props.incompleteList[x + 1]) {
+          rightLink = `/${this.props.incompleteList[x + 1].name}`;
+        }
+      }
+      return rightLink;
+    }
+
+      resultPages.push(<AnimatedRoute
+        atEnter={bounceTransition.atEnter}
+        atLeave={bounceTransition.atLeave}
+        atActive={bounceTransition.atActive}
+        mapStyles={mapStyles}
+        className="route-wrapper" path={currentLink} component={() => <HeadshotResult item={item} getOwner={(trait, traitName) => this.getItemByTrait(trait, traitName)} searchBySingleTrait={(traitNameAndValue) => this.searchFunctionByTrait(traitNameAndValue)} leftLink={(item) => getLeftLink(item)} rightLink={(item) => getRightLink(item)} />} />);
+    }
+
     return (
 
       <div className="App">
@@ -304,10 +379,11 @@ class App extends Component {
           <div className="App" id="main-color">
             <header className="App-header">
               <Link to="/" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Overview</button></Link>
-              <Link to="/roster" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Roster</button></Link>
+              <Link to="/roster" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button" id="roster-link">Roster</button></Link>
               <Link to="/designer" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Designer</button></Link>
               <Link to="/players" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Players</button></Link>
               <Link to="/inactive" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Inactive</button></Link>
+              <Link to="/incomplete" className="link-button" style={{ textDecoration: 'none' }}><button className="basic-button">Coming Soon</button></Link>
 
             </header>
             <div className="App-body">
@@ -343,6 +419,12 @@ class App extends Component {
                 atActive={bounceTransition.atActive}
                 mapStyles={mapStyles}
                 className="route-wrapper" path="/inactive" component={InactiveRoster} />
+              <AnimatedRoute
+                atEnter={bounceTransition.atEnter}
+                atLeave={bounceTransition.atLeave}
+                atActive={bounceTransition.atActive}
+                mapStyles={mapStyles}
+                className="route-wrapper" path="/incomplete" component={IncompleteRoster} />
               {resultPages}
             </div>
           </div>
