@@ -41,10 +41,30 @@ class Designer extends Component {
         let filterNamesAndValues = [];
         let contentToSearch = false;
         let newPreppedCode = "{\n";
+        let subraceStorage = event.currentTarget;
         let example = {};
+        //setup subrace.
+        
+        for (var exampleFieldToRender2 of event.currentTarget) {
+            if(exampleFieldToRender2.name == "Subrace"){
+                subraceStorage = exampleFieldToRender2.value;
+            }
+        }
         for (var exampleFieldToRender of event.currentTarget) {
-            if (exampleFieldToRender.type == "text" || exampleFieldToRender.type == "select-one") {
-                if (exampleFieldToRender.value) {
+            let tempStore = null;
+            if(exampleFieldToRender.name == "Race"){
+                if(subraceStorage){
+                    tempStore = `${subraceStorage} ${exampleFieldToRender.value}`;
+                }
+            }
+            if ((exampleFieldToRender.type == "text" || exampleFieldToRender.type == "select-one")&& exampleFieldToRender.name != "Subrace") {
+                if(tempStore){
+                    const preppedValue = exampleFieldToRender.name.toLowerCase().replace(/ /g, "");
+                    example[preppedValue] = tempStore;
+                    newPreppedCode = newPreppedCode + `\"${preppedValue}\" : \"${exampleFieldToRender.value}\",\n`;
+                    tempStore = null;
+                }
+                else if (exampleFieldToRender.value) {
                     const preppedValue = exampleFieldToRender.name.toLowerCase().replace(/ /g, "");
                     example[preppedValue] = exampleFieldToRender.value;
                     newPreppedCode = newPreppedCode + `\"${preppedValue}\" : \"${exampleFieldToRender.value}\",\n`;
@@ -73,7 +93,7 @@ class Designer extends Component {
     render() {
         let affiliationList = {
             name: "Affiliation",
-            list: ['', 'Rogue', 'Gotei United', 'Grand Sueki Army', 'Hebi Laboratories', 'Iramasha Union', 'Kokuryuteishi Empire', 'Lux Orior', 'Shadow Fall', 'Vandenreich', 'Vastime']
+            list: ['', 'Rogue', 'Gotei United', 'Grand Sueki Army', 'Hebi Laboratories', 'Hell','Iramasha Union', 'Kokuryuteishi Empire', 'Lux Orior', 'Shadow Fall', 'Vandenreich', 'Vastime']
         }
 
         let raceList = {
@@ -81,18 +101,30 @@ class Designer extends Component {
             list: ['', 'Arrancar', 'Demon', 'Hollow', 'Human', 'Iramasha', 'Plus', 'Quincy', 'Shinigami', 'Sueki', 'Sugiura', 'Visored', 'Ziamichi']
         }
 
+        let subraceList = {
+            name: "Subrace",
+            list: ['', 'Danava','Avant', 'Rakshasa','Nature','Angel','Devil','Hybrid','Tai Chi','Supernatural','Anima Mundi','Powerless']
+        }
+
         let blackTextCheck = {
             name: "Should Have Black Text",
             list: ['Yes', 'No']
         }
         
+        let statusSet = {
+            name: "Activity",
+            list: ["Active","Inactive","Incomplete"]
+        }
+        
         let propertiesToExemplify = [
             "Name",
             "Title",
+            //Must have raceList above subraceList for ordering.
             raceList,
+            subraceList,
             affiliationList,
-            "Primary Color",
-            "Secondary Color",
+            "Background Color",
+            "Foreground Color",
             "Text Background Color",
             blackTextCheck,
             "Traits",
@@ -100,7 +132,9 @@ class Designer extends Component {
             "Picture",
             "Headshot",
             "Player",
-            "Application Link"];
+            "Application Link",
+            statusSet];
+
         let objectsForInformation = [];
         for (var property of propertiesToExemplify) {
             if(!property.name){

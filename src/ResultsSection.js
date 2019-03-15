@@ -140,7 +140,7 @@ class ResultsSection extends Component {
                             <span class="filter-text" >Race</span><br />
                             <input class="filter-input" type="text" name="race" /><br />
                             <span class="filter-text" >Affiliation</span><br />
-                            <input class="filter-input" type="text" name="Affiliation" /><br />
+                            <input class="filter-input" type="text" name="affiliation" /><br />
                             <span class="filter-text" >Related</span><br />
                             <input class="filter-input" type="text" name="related" /><br />
                             <span class="filter-text" >Player</span><br />

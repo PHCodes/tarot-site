@@ -37,12 +37,12 @@ class HeadshotResult extends Component {
 
     reload = () => {
 
-        document.getElementById(this.props.item.name).style.backgroundColor = this.props.item.primarycolor;
-        document.getElementById('main-color').style.backgroundColor = this.props.item.secondarycolor;
+        document.getElementById(this.props.item.name).style.backgroundColor = this.props.item.foregroundcolor;
+        document.getElementById('main-color').style.backgroundColor = this.props.item.backgroundcolor;
         document.getElementById('inner-info-' + this.props.item.name).style.backgroundColor = this.props.item.textbackgroundcolor;
         let buttonsToColor = document.getElementsByClassName('basic-button');
         for (let button of buttonsToColor) {
-            button.style.backgroundColor = this.props.item.secondarycolor;
+            button.style.backgroundColor = this.props.item.backgroundcolor;
         }
         if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false" || this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext == "no" || this.props.item.shouldhaveblacktext == "white") {
             let textToColor = document.getElementsByClassName('info-field');
@@ -50,11 +50,19 @@ class HeadshotResult extends Component {
                 for (let text of textToColor) {
                     text.style.color = 'white';
                 }
+                let textToColor2 = document.getElementsByClassName('owner-field');
+                for (let text of textToColor2) {
+                    text.style.color = 'white';
+                }
             }
         } else {
             let textToColor = document.getElementsByClassName('info-field');
             if (this.props.item.textbackgroundcolor.match(/^(?:black|#000(?:000)?|rgba?\(\s*0\s*,\s*0\s*,\s*0\s*(?:,\s*1\s*)?\))$/i)) {
                 for (let text of textToColor) {
+                    text.style.color = 'white';
+                }
+                let textToColor2 = document.getElementsByClassName('owner-field');
+                for (let text of textToColor2) {
                     text.style.color = 'white';
                 }
             }
@@ -161,12 +169,16 @@ class HeadshotResult extends Component {
         let setOfValues = [];
         let applicationLinkVal = null;
         for (let trait in this.props.item) {
-            if (trait != "related" && trait != "inactive" && trait != "primarycolor" && trait != "secondarycolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
+            if (trait != "activity" && trait != "incomplete" && trait != "inactive"  && trait != "related" && trait != "inactive" && trait != "backgroundcolor" && trait != "foregroundcolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
                 if (trait == "applicationlink") {
+                    let nameShortened = this.props.item.name;
+                    if(this.props.item.name.indexOf(' ') != -1){
+                        nameShortened = this.props.item.name.substring(0, this.props.item.name.indexOf(' '));
+                    }
                     applicationLinkVal = (
                         <div className="info-field">
                             <br />
-                            {<a style={{ 'cursor': 'pointer' }} target="_self" style={{ color: "inherit", fontSize: "18px" }} href={this.props.item[trait.toString()]}>{this.props.item.name + "'s Application"}</a>}
+                            {<a style={{ 'cursor': 'pointer' }} target="_self" style={{ color: "inherit", fontSize: "18px" }} href={this.props.item[trait.toString()]}>{nameShortened + "'s Application"}</a>}
                             <br />
                         </div>
                     );
@@ -188,7 +200,7 @@ class HeadshotResult extends Component {
                 </div>);
             } else if (trait == "player") {
                 if (!this.props.tempField) {
-                    setOfValues.push(<div className="owner-field ">
+                    setOfValues.push(<div className="owner-field " >
                         <div><div>{this.capitalizeFirstLetter(trait) + ': ' + this.props.item[trait.toString()]}</div></div>
                         <div className="owner-headshot">{this.props.getOwner(this.props.item[trait], trait)}</div>
                     </div>);
@@ -198,7 +210,7 @@ class HeadshotResult extends Component {
                 relatedElements.push(<div className="owner-headshot">{this.props.getOwner(this.props.item[trait], trait)}</div>)
                 setOfValues.push(<div className="owner-field ">
                     <div><div>{this.capitalizeFirstLetter(trait)}</div></div>
-                    {relatedElements};
+                    {relatedElements}
                 </div>);
             } else if (trait == "inactive") {
                 if (this.props.item[trait.toString()]) {
