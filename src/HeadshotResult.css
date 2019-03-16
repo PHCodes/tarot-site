@@ -8,7 +8,7 @@
         border-radius: 8vh;
         max-width: 80vh;
         z-index: -1;
-        width: 80vw;
+        width: 85vw;
         background-color: blue;
 }
 
@@ -66,8 +66,8 @@ flex-direction: column;
 }
 
 .text-field{
-    width: 54vw;
-    max-width: 60vh;
+    width: 95%;
+    max-width: 50vh;
     z-index: 200;
     margin-top: 2vh;
     border-radius: 8vh;
@@ -80,6 +80,7 @@ flex-direction: column;
     justify-content: left;
     flex-direction: column;
     margin: 4vh;
+    width: 100%;
     align-items: center;
 }
 
@@ -110,10 +111,9 @@ flex-direction: column;
 
 .relevant-image-horizontal{
     display: flex;
-    height: 40vh;
     z-index: 200;
-    width: 60vh;
-    max-width: 600px;
+    width: 80vh;
+    max-width: 95%;
     border-radius: 8vh;
     background-color: inherit;
     box-shadow: 2px 2px black;

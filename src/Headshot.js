@@ -9,7 +9,7 @@ class Headshot extends Component {
         let itemsToDisplayInHeadshot = ["name", "title", "race", "affiliation", "power"];
         let renderedVersion = [];
         renderedVersion.push(<div className="filler"></div>);
-        for(var currentItem of itemsToDisplayInHeadshot){
+        for (var currentItem of itemsToDisplayInHeadshot) {
             renderedVersion.push(
                 <Fragment>{this.props.item[currentItem]} <br /></Fragment>);
         }
@@ -23,47 +23,57 @@ class Headshot extends Component {
         }
     }
     componentDidMount() {
-        if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false" || this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext == "no") {
-            let textToColor = document.getElementById("name-" + this.props.item.name);
-            if (!this.props.item.textbackgroundcolor.match(/^(?:white|#fff(?:fff)?|rgba?\(\s*255\s*,\s*255\s*,\s*255\s*(?:,\s*1\s*)?\))$/i)) {
+        // Edge 20+
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        var isEdge = !isIE && !!window.StyleMedia;
 
-                textToColor.style.color = 'white';
+        if (isEdge || isIE) {
+            document.getElementById('root').innerHTML = "Edge won't let me use functions! And it sucks! And so does IE! Get a browser that allows actual functional development, for the love of god!";
+        }
+        else {
+            if (!this.props.item.shouldhaveblacktext || this.props.item.shouldhaveblacktext == "false" || this.props.item.shouldhaveblacktext == "No" || this.props.item.shouldhaveblacktext == "no") {
+                let textToColor = document.getElementById("name-" + this.props.item.name);
+                if (!this.props.item.textbackgroundcolor.match(/^(?:white|#fff(?:fff)?|rgba?\(\s*255\s*,\s*255\s*,\s*255\s*(?:,\s*1\s*)?\))$/i)) {
 
-            }
-        } else {
-            let textToColor = document.getElementById("name-" + this.props.item.name);
-            if (this.props.item.textbackgroundcolor.match(/^(?:black|#000(?:000)?|rgba?\(\s*0\s*,\s*0\s*,\s*0\s*(?:,\s*1\s*)?\))$/i)) {
+                    textToColor.style.color = 'white';
 
-                textToColor.style.color = 'white';
+                }
             } else {
-                textToColor.style.color = 'black';
-            }
-        }
-        let textToColor = document.getElementById("name-" + this.props.item.name);
-        //Check if overflowing.
-        function isEllipsisActive(e) {
-            return (e.offsetHeight < e.scrollHeight);
-        }
-        let renderedVersion = [];
-        for(var currentItem of this.state.itemsToDisplay){
-            renderedVersion.push(
-                <Fragment>{this.props.item[currentItem]} <br /></Fragment>);
-        }
+                let textToColor = document.getElementById("name-" + this.props.item.name);
+                if (this.props.item.textbackgroundcolor.match(/^(?:black|#000(?:000)?|rgba?\(\s*0\s*,\s*0\s*,\s*0\s*(?:,\s*1\s*)?\))$/i)) {
 
-        if (isEllipsisActive(textToColor)) {
-            var overflowingDealing = (
-                <span id={"name-" + this.props.item.name} className="name-focus invisible">
-                    <marquee className="marquee-headshot"
-                        SCROLLAMOUNT="3"
-                        DIRECTION="up"
-                        LOOP="false"
-                        behavior="scroll" 
-                        height="80%">
-                        {renderedVersion}
-                    </marquee>
-                </span>
-            )
-            this.setState({textOfObject: overflowingDealing});
+                    textToColor.style.color = 'white';
+                } else {
+                    textToColor.style.color = 'black';
+                }
+            }
+            let textToColor = document.getElementById("name-" + this.props.item.name);
+            //Check if overflowing.
+            function isEllipsisActive(e) {
+                return (e.offsetHeight < e.scrollHeight);
+            }
+            let renderedVersion = [];
+            for (var currentItem of this.state.itemsToDisplay) {
+                renderedVersion.push(
+                    <Fragment>{this.props.item[currentItem]} <br /></Fragment>);
+            }
+
+            if (isEllipsisActive(textToColor)) {
+                var overflowingDealing = (
+                    <span id={"name-" + this.props.item.name} className="name-focus invisible">
+                        <marquee className="marquee-headshot"
+                            SCROLLAMOUNT="3"
+                            DIRECTION="up"
+                            LOOP="false"
+                            behavior="scroll"
+                            height="80%">
+                            {renderedVersion}
+                        </marquee>
+                    </span>
+                )
+                this.setState({ textOfObject: overflowingDealing });
+            }
         }
     }
     //Should have item in props.
@@ -79,18 +89,18 @@ class Headshot extends Component {
 
             }
         }, 500);
-        
+
         var inactive = '';
-        if(this.props.item.inactive){
+        if (this.props.item.inactive) {
             inactive = "-inactive";
         }
 
         return (
-            <span className={"headshot"+inactive}>
+            <span className={"headshot" + inactive}>
                 <span id={"name-box-" + this.props.item.name} className="name-box invisible" style={{ 'background-color': this.props.item.textbackgroundcolor }}>
                     {this.state.textOfObject}
                 </span>
-                <img className={"image-box"+inactive}  id="imgFull" src={this.props.item.headshot} />
+                <img className={"image-box" + inactive} id="imgFull" src={this.props.item.headshot} />
             </span>
         );
     }

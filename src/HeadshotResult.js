@@ -101,19 +101,32 @@ class HeadshotResult extends Component {
     }
 
     componentDidMount() {
-        this.reload();
-        let scroller = document.getElementById("main-color");
+        // Edge 20+
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        var isEdge = !isIE && !!window.StyleMedia;
 
-        scroller.scrollTop = 0;
-        let container = document.getElementById("full-page" + this.props.item.name);
-        this.leftLinkButton = document.getElementById('leftLink-' + this.props.item.name);
-        this.rightLinkButton = document.getElementById('rightLink-' + this.props.item.name);
+        if (isEdge || isIE) {
+            document.getElementById('root').innerHTML = "Hey! You're using edge (or IE, god forbid)! It sucks! Get a good browser, that allows me to use real programming! Nothing will work here if you continue to use Edge!";
 
-        container.addEventListener('touchstart', this.lock, false);
-        container.addEventListener('touchend', this.move, false);
+        }
+        else {
+            this.reload();
+            let scroller = document.getElementById("main-color");
 
-        container.addEventListener('mousedown', this.lock, false);
-        container.addEventListener('mouseup', this.move, false);
+            scroller.scrollTop = 0;
+            let container = document.getElementById("full-page" + this.props.item.name);
+            this.leftLinkButton = document.getElementById('leftLink-' + this.props.item.name);
+            this.rightLinkButton = document.getElementById('rightLink-' + this.props.item.name);
+
+            container.addEventListener('touchstart', this.lock, false);
+            container.addEventListener('touchend', this.move, false);
+
+            container.addEventListener('mousedown', this.lock, false);
+            container.addEventListener('mouseup', this.move, false);
+
+        }
+
     }
 
     componentDidUpdate() {
@@ -169,10 +182,10 @@ class HeadshotResult extends Component {
         let setOfValues = [];
         let applicationLinkVal = null;
         for (let trait in this.props.item) {
-            if (trait != "activity" && trait != "incomplete" && trait != "inactive"  && trait != "related" && trait != "inactive" && trait != "backgroundcolor" && trait != "foregroundcolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
+            if (trait != "activity" && trait != "incomplete" && trait != "inactive" && trait != "related" && trait != "inactive" && trait != "backgroundcolor" && trait != "foregroundcolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
                 if (trait == "applicationlink") {
                     let nameShortened = this.props.item.name;
-                    if(this.props.item.name.indexOf(' ') != -1){
+                    if (this.props.item.name.indexOf(' ') != -1) {
                         nameShortened = this.props.item.name.substring(0, this.props.item.name.indexOf(' '));
                     }
                     applicationLinkVal = (
@@ -183,12 +196,12 @@ class HeadshotResult extends Component {
                         </div>
                     );
                 } else {
-                    let getsSearchClick = trait=="affiliation" || trait=="race";
+                    let getsSearchClick = trait == "affiliation" || trait == "race";
                     setOfValues.push(
                         <div className="info-field">
                             <br />
                             <span style={{}}>{this.capitalizeFirstLetter(trait) + ': '}</span>
-                            {(this.props.item[trait.toString()] ? <span style={getsSearchClick ? { 'cursor': 'pointer' } : null} onClick={getsSearchClick ? (filter, name) => this.funcForTraitSearch(trait.toString(), this.props.item[trait.toString()]) : () => {return null} }>{this.props.item[trait.toString()]}</span> : <span>'N/A'</span>)}
+                            {(this.props.item[trait.toString()] ? <span style={getsSearchClick ? { 'cursor': 'pointer' } : null} onClick={getsSearchClick ? (filter, name) => this.funcForTraitSearch(trait.toString(), this.props.item[trait.toString()]) : () => { return null }}>{this.props.item[trait.toString()]}</span> : <span>'N/A'</span>)}
                         </div>
                     );
                 }
