@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './Designer.css';
 import HeadshotResult from './HeadshotResultDesigner';
+import * as AffiliationList from './affiliations.json';
+import * as RaceList from './races.json';
+import * as SubraceList from './subraces.json';
+
 
 class Designer extends Component {
     //Should have item in props.
@@ -91,20 +95,17 @@ class Designer extends Component {
     }
 
     render() {
-        let affiliationList = {
-            name: "Affiliation",
-            list: ['', 'Rogue', 'Gotei United', 'Grand Sueki Army', 'Hebi Laboratories', 'Hell','Iramasha Union', 'Kokuryuteishi Empire', 'Lux Orior', 'Shadow Fall', 'Vandenreich', 'Vastime']
-        }
+        let affiliationList = {};
+        affiliationList.name = AffiliationList.name;
+        affiliationList.list = AffiliationList.list;
 
-        let raceList = {
-            name: "Race",
-            list: ['', 'Arrancar', 'Demon', 'Hollow', 'Human', 'Iramasha', 'Plus', 'Quincy', 'Shinigami', 'Sueki', 'Sugiura', 'Visored', 'Ziamichi']
-        }
+        let raceList = {};
+        raceList.name = RaceList.name;
+        raceList.list = RaceList.list;
 
-        let subraceList = {
-            name: "Subrace",
-            list: ['', 'Danava','Avant', 'Rakshasa','Nature','Angel','Devil','Hybrid','Tai Chi','Supernatural','Anima Mundi','Powerless']
-        }
+        let subraceList = {};
+        subraceList.name = SubraceList.name;
+        subraceList.list = SubraceList.list;
 
         let blackTextCheck = {
             name: "Should Have Black Text",

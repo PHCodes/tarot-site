@@ -9,6 +9,8 @@ let profileSet = [];
 for (let x = 0; x < currentListofItems.length; x++) {
     let newProfileItem = currentListofItems[x];
     newProfileItem.headshot = newProfileItem.headshot;
+    //Generate a linked name. Necessary for proper linking on mobile version.
+    newProfileItem.linkName = newProfileItem.name.replace(/ /g,'');
     if(newProfileItem.activity){
         if(newProfileItem.activity.toLowerCase() == "incomplete"){
             newProfileItem.incomplete = true;
@@ -88,6 +90,7 @@ let setup = (itemToCheck) => {
     if (!dataToAddTo) {
         dataToAddTo = {
             name: itemToCheck.player,
+            linkName: itemToCheck.player.replace(/ /g,''),
             picture: itemToCheck.picture,
             headshot: itemToCheck.headshot,
             textbackgroundcolor: '#1b5181',

@@ -41,6 +41,10 @@ class App extends Component {
         if(itemToCheck){
           relatedInfo.push(itemToCheck);
         }
+        itemToCheck = this.props.incompleteList.find(x => x.name === currentTrait);
+        if(itemToCheck){
+          relatedInfo.push(itemToCheck);
+        }
       }
     }
     return <ResultsSection makeSearchFunctionAvailable={(searchFunc) => this.searchFunctionAvailable(searchFunc)} searchCompletedFunc={(searchResultItems) => this.searchCompleted(searchResultItems)} haveSearched={this.state.searchedItemsList.length > 0 ? true : false} items={relatedInfo} />
@@ -188,14 +192,14 @@ class App extends Component {
 
     for (let item of this.props.ownerList) {
       x = x + 1;
-      let currentLink = `/${item.name}`;
+      let currentLink = `/${item.linkName}`;
 
       let getLeftLink = (item) => {
         let leftLink = null;
         let correctObj = fetchCurrentObjOwner(item);
         let x = this.props.ownerList.lastIndexOf(correctObj);
         if (this.props.ownerList[x - 1]) {
-          leftLink = `/${this.props.ownerList[x - 1].name}`;
+          leftLink = `/${this.props.ownerList[x - 1].linkName}`;
         }
         return leftLink;
       }
@@ -205,7 +209,7 @@ class App extends Component {
         let correctObj = fetchCurrentObjOwner(item);
         let x = this.props.ownerList.lastIndexOf(correctObj);
         if (this.props.ownerList[x + 1]) {
-          rightLink = `/${this.props.ownerList[x + 1].name}`;
+          rightLink = `/${this.props.ownerList[x + 1].linkName}`;
         }
         return rightLink;
       }
@@ -233,7 +237,7 @@ class App extends Component {
 
     for (let item of this.props.itemList) {
       x = x + 1;
-      let currentLink = `/${item.name}`;
+      let currentLink = `/${item.linkName}`;
 
       let getLeftLink = (item) => {
         let leftLink = null;
@@ -242,11 +246,11 @@ class App extends Component {
         if (this.state.searchedItemsList.length > 0) {
           x = this.state.searchedItemsList.lastIndexOf(correctObj);
           if (this.state.searchedItemsList[x - 1]) {
-            leftLink = `/${this.state.searchedItemsList[x - 1].name}`;
+            leftLink = `/${this.state.searchedItemsList[x - 1].linkName}`;
           }
         } else {
           if (this.props.itemList[x - 1]) {
-            leftLink = `/${this.props.itemList[x - 1].name}`;
+            leftLink = `/${this.props.itemList[x - 1].linkName}`;
           }
         }
         return leftLink;
@@ -259,11 +263,11 @@ class App extends Component {
         if (this.state.searchedItemsList.length > 0) {
           x = this.state.searchedItemsList.lastIndexOf(correctObj);
           if (this.state.searchedItemsList[x + 1]) {
-            rightLink = `/${this.state.searchedItemsList[x + 1].name}`;
+            rightLink = `/${this.state.searchedItemsList[x + 1].linkName}`;
           }
         } else {
           if (this.props.itemList[x + 1]) {
-            rightLink = `/${this.props.itemList[x + 1].name}`;
+            rightLink = `/${this.props.itemList[x + 1].linkName}`;
           }
         }
         return rightLink;
@@ -280,7 +284,7 @@ class App extends Component {
 
     for (let item of this.props.inactiveList) {
       x = x + 1;
-      let currentLink = `/${item.name}`;
+      let currentLink = `/${item.linkName}`;
 
       let getLeftLink = (item) => {
         let leftLink = null;
@@ -289,11 +293,11 @@ class App extends Component {
         if (this.state.searchedItemsList.length > 0) {
           x = this.state.searchedItemsList.lastIndexOf(correctObj);
           if (this.state.searchedItemsList[x - 1]) {
-            leftLink = `/${this.state.searchedItemsList[x - 1].name}`;
+            leftLink = `/${this.state.searchedItemsList[x - 1].linkName}`;
           }
         } else {
           if (this.props.inactiveList[x - 1]) {
-            leftLink = `/${this.props.inactiveList[x - 1].name}`;
+            leftLink = `/${this.props.inactiveList[x - 1].linkName}`;
           }
         }
         return leftLink;
@@ -307,11 +311,11 @@ class App extends Component {
       if (this.state.searchedItemsList.length > 0) {
         x = this.state.searchedItemsList.lastIndexOf(correctObj);
         if (this.state.searchedItemsList[x + 1]) {
-          rightLink = `/${this.state.searchedItemsList[x + 1].name}`;
+          rightLink = `/${this.state.searchedItemsList[x + 1].linkName}`;
         }
       } else {
         if (this.props.inactiveList[x + 1]) {
-          rightLink = `/${this.props.inactiveList[x + 1].name}`;
+          rightLink = `/${this.props.inactiveList[x + 1].linkName}`;
         }
       }
       return rightLink;
@@ -327,7 +331,7 @@ class App extends Component {
 
     for (let item of this.props.incompleteList) {
       x = x + 1;
-      let currentLink = `/${item.name}`;
+      let currentLink = `/${item.linkName}`;
 
       let getLeftLink = (item) => {
         let leftLink = null;
@@ -336,11 +340,11 @@ class App extends Component {
         if (this.state.searchedItemsList.length > 0) {
           x = this.state.searchedItemsList.lastIndexOf(correctObj);
           if (this.state.searchedItemsList[x - 1]) {
-            leftLink = `/${this.state.searchedItemsList[x - 1].name}`;
+            leftLink = `/${this.state.searchedItemsList[x - 1].linkName}`;
           }
         } else {
           if (this.props.incompleteList[x - 1]) {
-            leftLink = `/${this.props.incompleteList[x - 1].name}`;
+            leftLink = `/${this.props.incompleteList[x - 1].linkName}`;
           }
         }
         return leftLink;
@@ -354,11 +358,11 @@ class App extends Component {
       if (this.state.searchedItemsList.length > 0) {
         x = this.state.searchedItemsList.lastIndexOf(correctObj);
         if (this.state.searchedItemsList[x + 1]) {
-          rightLink = `/${this.state.searchedItemsList[x + 1].name}`;
+          rightLink = `/${this.state.searchedItemsList[x + 1].linkName}`;
         }
       } else {
         if (this.props.incompleteList[x + 1]) {
-          rightLink = `/${this.props.incompleteList[x + 1].name}`;
+          rightLink = `/${this.props.incompleteList[x + 1].linkName}`;
         }
       }
       return rightLink;

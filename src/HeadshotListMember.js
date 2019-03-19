@@ -7,7 +7,7 @@ import {
 import Headshot from './Headshot';
 
 const HeadshotListMember = ({ match, item }) => (
-        <Link to={`/${item.name}`}>
+        <Link to={`/${item.linkName}`}>
             <Headshot item={item}/>
         </Link>
 )

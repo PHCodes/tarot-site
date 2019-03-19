@@ -182,7 +182,7 @@ class HeadshotResult extends Component {
         let setOfValues = [];
         let applicationLinkVal = null;
         for (let trait in this.props.item) {
-            if (trait != "activity" && trait != "incomplete" && trait != "inactive" && trait != "related" && trait != "inactive" && trait != "backgroundcolor" && trait != "foregroundcolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
+            if (trait != "linkName" && trait != "activity" && trait != "incomplete" && trait != "inactive" && trait != "related" && trait != "inactive" && trait != "backgroundcolor" && trait != "foregroundcolor" && trait != "textbackgroundcolor" && trait != "shouldhaveblacktext" && trait != "picture" && trait != "headshot" && trait != "items" && trait != "player") {
                 if (trait == "applicationlink") {
                     let nameShortened = this.props.item.name;
                     if (this.props.item.name.indexOf(' ') != -1) {
