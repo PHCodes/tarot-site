@@ -76,7 +76,7 @@ let checkOwnerInArray = (item) => {
     })
 }
 
-
+let unknownOwnerArray = [];
 let setup = (itemToCheck) => {
     let currentPresence = checkOwnerInArray(itemToCheck);
     let dataToAddTo;
@@ -88,24 +88,32 @@ let setup = (itemToCheck) => {
         })
     }
     if (!dataToAddTo) {
-        dataToAddTo = {
-            name: itemToCheck.player,
-            linkName: itemToCheck.player.replace(/ /g,''),
-            picture: itemToCheck.picture,
-            headshot: itemToCheck.headshot,
-            textbackgroundcolor: '#1b5181',
-            shouldhaveblacktext: false,
-            items: []
+        if(!itemToCheck.inactive){
+            dataToAddTo = {
+                name: itemToCheck.player,
+                linkName: itemToCheck.player.replace(/ /g,''),
+                picture: itemToCheck.picture,
+                headshot: itemToCheck.headshot,
+                textbackgroundcolor: '#1b5181',
+                shouldhaveblacktext: false,
+                items: []
+            }
+            ownerArray.push(dataToAddTo);
         }
-        ownerArray.push(dataToAddTo);
+        else{
+            unknownOwnerArray.push(itemToCheck);
+        }
     }
-    dataToAddTo.items.push(itemToCheck);
+    if(dataToAddTo){
+        dataToAddTo.items.push(itemToCheck);
+    }
 }
 
 profileFinishedSet.map(function(result){setup(result) })
 
-inactiveArray.map(function(result){setup(result) })
-incompleteArray.map(function(result){setup(result)} )
+inactiveArray.map(function(result){setup(result) });
+incompleteArray.map(function(result){setup(result)} );
+unknownOwnerArray.map(function(result){setup(result)});
 ReactDOM.render(<App itemList={profileFinishedSet} incompleteList={incompleteArray}ownerList={ownerArray} inactiveList={inactiveArray} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

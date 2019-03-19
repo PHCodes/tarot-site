@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './Designer.css';
+import { HuePicker } from 'react-color'
 import HeadshotResult from './HeadshotResultDesigner';
 import * as AffiliationList from './affiliations.json';
 import * as RaceList from './races.json';
@@ -14,7 +15,10 @@ class Designer extends Component {
         super(props)
         this.state = {
             preppedCode: null,
-            showCode: false
+            showCode: false,
+            backgroundColor : "#000",
+            foregroundColor : "#000",
+            textBackgroundColor : "#000",
         }
     }
 
@@ -24,9 +28,9 @@ class Designer extends Component {
         scroller.scrollTop = 0;
     }
 
-    componentWillUnmount() {          
+    componentWillUnmount() {
         document.getElementById('main-color').style.backgroundColor = '#1b5181';
-        
+
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -48,21 +52,21 @@ class Designer extends Component {
         let subraceStorage = event.currentTarget;
         let example = {};
         //setup subrace.
-        
+
         for (var exampleFieldToRender2 of event.currentTarget) {
-            if(exampleFieldToRender2.name == "Subrace"){
+            if (exampleFieldToRender2.name == "Subrace") {
                 subraceStorage = exampleFieldToRender2.value;
             }
         }
         for (var exampleFieldToRender of event.currentTarget) {
             let tempStore = null;
-            if(exampleFieldToRender.name == "Race"){
-                if(subraceStorage){
+            if (exampleFieldToRender.name == "Race") {
+                if (subraceStorage) {
                     tempStore = `${subraceStorage} ${exampleFieldToRender.value}`;
                 }
             }
-            if ((exampleFieldToRender.type == "text" || exampleFieldToRender.type == "select-one")&& exampleFieldToRender.name != "Subrace") {
-                if(tempStore){
+            if ((exampleFieldToRender.type == "text" || exampleFieldToRender.type == "select-one") && exampleFieldToRender.name != "Subrace") {
+                if (tempStore) {
                     const preppedValue = exampleFieldToRender.name.toLowerCase().replace(/ /g, "");
                     example[preppedValue] = tempStore;
                     newPreppedCode = newPreppedCode + `\"${preppedValue}\" : \"${exampleFieldToRender.value}\",\n`;
@@ -81,7 +85,7 @@ class Designer extends Component {
         }
         newPreppedCode = newPreppedCode.substring(0, newPreppedCode.length - 2);
         newPreppedCode = newPreppedCode + `\n}`
-        this.setState({ presentSetup: example});
+        this.setState({ presentSetup: example });
         this.setState({ preppedCode: newPreppedCode });
 
         ReactDOM.render(<HeadshotResult item={example} match={this.props.match} tempField={true} getOwner={(trait, traitName) => this.props.getItemByTrait(trait, traitName)} leftLink={() => { return null }} rightLink={() => { return null }} />, document.getElementById('example'))
@@ -92,6 +96,18 @@ class Designer extends Component {
     selectCode = () => {
         document.getElementById("code-area").focus();
         document.getElementById("code-area").select();
+    }
+
+    changeBackgroundInput = (color, event) => {
+        this.setState({ backgroundColor: color.hex});
+    }
+
+    changeForegroundInput = (color, event) => {
+        this.setState({ foregroundColor: color.hex});
+    }
+
+    changeTextBackgroundInput = (color, event) => {
+        this.setState({ textBackgroundColor: color.hex});
     }
 
     render() {
@@ -111,12 +127,12 @@ class Designer extends Component {
             name: "Should Have Black Text",
             list: ['Yes', 'No']
         }
-        
+
         let statusSet = {
             name: "Activity",
-            list: ["Active","Inactive","Incomplete"]
+            list: ["Active", "Inactive", "Incomplete"]
         }
-        
+
         let propertiesToExemplify = [
             "Name",
             "Title",
@@ -138,34 +154,55 @@ class Designer extends Component {
 
         let objectsForInformation = [];
         for (var property of propertiesToExemplify) {
-            if(!property.name){
-                objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input type="text" className="example-input" name={property} /></div>)    
-            } else{
+            if (!property.name) {
+                if (property.includes("Color")) {
+                    let currentState;
+                    let handleChangeCompleteFunc;
+                    let stateToChange = property.replace(/ /g,'');
+                    if(property == "Background Color"){
+                        currentState = this.state.backgroundColor;
+                        handleChangeCompleteFunc = this.changeBackgroundInput;
+                    }
+                    if(property == "Foreground Color"){
+                        currentState = this.state.foregroundColor;
+                        handleChangeCompleteFunc = this.changeForegroundInput;
+                    }  
+                    if(property == "Text Background Color"){
+                        currentState = this.state.textBackgroundColor
+                        handleChangeCompleteFunc = this.changeTextBackgroundInput;
+                    }
+                    objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input type="text" className="example-input" name={property} value={currentState} /></div>)
+                    objectsForInformation.push(<div className="" style={{'display': 'flex', 'justify-content': 'center', 'padding-top': '1vh'}}><HuePicker  onChange={ handleChangeCompleteFunc } color='#000'/></div>);
+                } else {
+                    objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input type="text" className="example-input" name={property} /></div>)
+                }
+            } else {
                 let dropboxContents = [];
-                for(var item of property.list){
+                for (var item of property.list) {
                     dropboxContents.push(<option value={item}>{item}</option>)
                 }
-                objectsForInformation.push(<div className="example-section"><span className="example-header">{property.name}: </span><select id={"select-"+property.name} className="example-input designer-select" name={property.name} >{dropboxContents}</select></div>)
-            }}
+                objectsForInformation.push(<div className="example-section"><span className="example-header">{property.name}: </span><select id={"select-" + property.name} className="example-input designer-select" name={property.name} >{dropboxContents}</select></div>)
+            }
+        }
 
         return (
             <Router>
-            <div>
-                <span className="designer-page-outer">
-                    <span className="designer-page-inner">
-                        <form onSubmit={(event) => this.handleExample(event)}>
-                            {objectsForInformation}
-                            <input className="basic-button example-button" type="submit" value="Submit" />
-                        </form>
-                        <button id="display-code" onClick={() => this.setState({ showCode: true })} className={"basic-button" + (!this.state.showCode ? "" : " disappear-button")} style={{ 'display': this.state.preppedCode ? 'flex' : 'none' }}>Generate Code</button>
-                        <textarea readOnly id="code-area" style={{ 'display': this.state.showCode ? 'flex' : 'none' }} className="prepped-code" value={this.state.preppedCode}></textarea>
-                        <button id="select-text" style={{ 'display': this.state.showCode ? 'flex' : 'none' }} className="basic-button" onClick={() => this.selectCode()}>Select Code</button>
+                <div>
+                    <span className="designer-page-outer">
+                        <span className="designer-page-inner">
+                            <form onSubmit={(event) => this.handleExample(event)}>
+                                {objectsForInformation}
+                                <input className="basic-button example-button" type="submit" value="Submit" />
+                            </form>
+                            <button id="display-code" onClick={() => this.setState({ showCode: true })} className={"basic-button" + (!this.state.showCode ? "" : " disappear-button")} style={{ 'display': this.state.preppedCode ? 'flex' : 'none' }}>Generate Code</button>
+                            <textarea readOnly id="code-area" style={{ 'display': this.state.showCode ? 'flex' : 'none' }} className="prepped-code" value={this.state.preppedCode}></textarea>
+                            <button id="select-text" style={{ 'display': this.state.showCode ? 'flex' : 'none' }} className="basic-button" onClick={() => this.selectCode()}>Select Code</button>
+                        </span>
                     </span>
-                </span>
 
-                <div id="example">
+                    <div id="example">
+                    </div>
                 </div>
-            </div>
             </Router>
         );
     }
