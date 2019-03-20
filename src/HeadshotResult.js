@@ -212,11 +212,13 @@ class HeadshotResult extends Component {
                     {(this.props.item[trait.toString()] ? <span style={{ 'display': 'inline-block', 'cursor': 'pointer' }} >{this.props.item[trait]}</span> : <span>'N/A'</span>)}
                 </div>);
             } else if (trait == "player") {
-                if (!this.props.tempField) {
-                    setOfValues.push(<div className="owner-field " >
-                        <div><div>{this.capitalizeFirstLetter(trait) + ': ' + this.props.item[trait.toString()]}</div></div>
-                        <div className="owner-headshot">{this.props.getOwner(this.props.item[trait], trait)}</div>
-                    </div>);
+                if(!this.props.item.inactive){
+                    if (!this.props.tempField) {
+                        setOfValues.push(<div className="owner-field " >
+                            <div><div>{this.capitalizeFirstLetter(trait) + ': ' + this.props.item[trait.toString()]}</div></div>
+                            <div className="owner-headshot">{this.props.getOwner(this.props.item[trait], trait)}</div>
+                        </div>);
+                    }
                 }
             } else if (trait == "related") {
                 let relatedElements = [];

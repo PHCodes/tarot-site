@@ -44,7 +44,7 @@
             "traits": "none",
             "power": "Music",
             "picture": "Img/Sofia2.gif",
-            "headshot": "Img/Sofia.PNG",
+            "headshot": "https://snag.gy/PnNbsj.jpg",
             "player": "The Owl",
             "applicationlink": "http://www.platinumhearts.net/t19527-sofia-montero-approved-0-4-0-3"
         },
@@ -78,6 +78,7 @@
             "picture": "Img/Henrex2.png",
             "headshot": "Img/Henrex.png",
             "player": "Henrex",
+            "related": ["Yoriko Morri"],
             "applicationlink": "http://www.platinumhearts.net/t17835-henrex-astillon-semi-approved-0-3-0-2-in-release-hazard-rating-s"
         },
         {
@@ -133,7 +134,9 @@
             "applicationlink": "http://www.platinumhearts.net/t19960-the-doctor-kabuto-hebi-approved-0-2",
             "related": [
                 "Suzu Hebi",
-                "Rasuca Desavarsit Hebi"
+                "Rasuca Desavarsit Hebi",
+                "Yasuko",
+                "Sonny Ray"
             ]
         },
         {
@@ -149,6 +152,7 @@
             "power": "Feather Blades, Raw Speed",
             "picture": "https://tse1.mm.bing.net/th?id=OIP.M08E1U4i6uQv0ObYewqPYwHaKX&pid=Api",
             "headshot": "http://fc07.deviantart.net/fs16/f/2007/163/c/b/DNAngel__Krad_by_kurai88.jpg",
+            "related": ["Len Washi"],
             "player": "JJ"
         },
         {
@@ -219,7 +223,9 @@
             "player": "JJ",
             "related": [
                 "Suzu Hebi",
-                "Kabuto Hebi"
+                "Kabuto Hebi",
+                "Sonny Ray",
+                "Calypso"
             ],
             "activity": "incomplete"
         },
@@ -253,6 +259,7 @@
             "headshot": "https://snag.gy/JbUr1O.jpg",
             "picture": "https://i.pinimg.com/originals/4f/1b/04/4f1b04d1993a94374c1bbdf00206e6ea.jpg",
             "player": "MWD",
+            "related": ["Henrex Astillon"],
             "applicationlink": "http://www.platinumhearts.net/t18766-yoriko-morri-5-1"
         },
         {
@@ -269,6 +276,10 @@
             "picture": "https://tse1.mm.bing.net/th?id=OIP.pAJ6Tmt1EwdMjki01N7_SQHaLH&pid=Api",
             "headshot": "https://snag.gy/oqujzZ.jpg",
             "player": "JJ",
+            "related": [
+                "Kabuto Hebi",
+                "Rasuca Desavarsit Hebi"
+            ],
             "applicationlink": "http://www.platinumhearts.net/t14972-sonny-ray-time-s-jester-approved-2-1"
         },
         {
@@ -571,6 +582,7 @@
             "headshot": "https://pbs.twimg.com/profile_images/450392850304630784/1VQMo35u.jpeg",
             "player": "JJ",
             "applicationlink": "http://www.platinumhearts.net/t6081-muryokuna-len-washi-approved-1-3",
+            "related": ["Colin Washi"],
             "activity": "Active"
         },
         {
@@ -588,6 +600,7 @@
             "headshot": "https://snag.gy/Ddh85f.jpg",
             "player": "JJ",
             "applicationlink": "http://www.platinumhearts.net/t11289-bampaia-kyu-ketsukiapproved-1-1",
+            "related": ["Angel"],
             "activity": "Active"
         },
         {
@@ -657,6 +670,58 @@
             "player": "Kade",
             "applicationlink": "http://www.platinumhearts.net/t12604-eric-zarathos-revamping-0-2-0-1-in-dark-forbidden-true-form-only",
             "activity": "Inactive"
+        },
+        {
+            "name": "Buu",
+            "title": "The Boogeyman",
+            "race": "Arrancar",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#db7593",
+            "foregroundcolor": "#dadada",
+            "textbackgroundcolor": "#F482A4",
+            "shouldhaveblacktext": "No",
+            "traits": "Curiosity, Experimentation, Aggression",
+            "power": "Candy, Energy, Healing",
+            "picture": "https://i.pinimg.com/236x/20/36/ef/2036efab150ff72690ff1df5fa0f6303.jpg",
+            "headshot": "https://snag.gy/6L2j3J.jpg",
+            "player": "The Owl",
+            "applicationlink": "http://www.platinumhearts.net/t19442-buu-arrancar-approved-1-3-base-1-1-ressureccion",
+            "activity": "Active"
+        },
+        {
+            "name": "Angel",
+            "title": "The Droid Maker",
+            "race": "Shinigami Doll",
+            "affiliation": "Lux Orior",
+            "backgroundcolor": "#776b5b",
+            "foregroundcolor": "#cebb9b",
+            "textbackgroundcolor": "#000",
+            "shouldhaveblacktext": "No",
+            "traits": "Naive, Intelligent, Professional, Loyal",
+            "power": "Droids, Body Modifications, Technology",
+            "picture": "https://i.pinimg.com/originals/dc/a9/12/dca912601fe18113119275591196f016.webp",
+            "headshot": "https://i.imgur.com/oW1dGDI.jpg",
+            "player": "The Owl",
+            "applicationlink": "http://www.platinumhearts.net/t19003p10-angel-approved-2-5-1-5",
+            "related": ["Bampaia Kyu Ketsuki"],
+            "activity": "Active"
+        },
+        {
+            "name": "Yurei Mizuhime",
+            "title": "None",
+            "race": "Shinigami",
+            "affiliation": "Gotei United",
+            "backgroundcolor": "#00bcff",
+            "foregroundcolor": "#0039ff",
+            "textbackgroundcolor": "#6fd280",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Loyal, Ambitious, Professional",
+            "power": "Weather, Water Cycle, Swords",
+            "picture": "https://mocah.org/thumbs/4585142-anime-girls-sword-touhou-konpaku-youmu-anime.jpg",
+            "headshot": "https://pbs.twimg.com/media/Cdso18NWEAE85L2.jpg",
+            "player": "The Owl",
+            "applicationlink": "http://www.platinumhearts.net/t19513-yurei-mizuhime-finished",
+            "activity": "Active"
         }
     ]
 }
