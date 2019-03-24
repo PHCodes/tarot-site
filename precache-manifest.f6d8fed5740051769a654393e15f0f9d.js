@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/tarot-site/static/js/runtime~main.c1f43ad1.js"
   },
   {
-    "revision": "64833da2e9701abf7c84",
-    "url": "/tarot-site/static/js/main.64833da2.chunk.js"
+    "revision": "384acd44d838fc01b626",
+    "url": "/tarot-site/static/js/main.384acd44.chunk.js"
   },
   {
     "revision": "7d61ef922f5605c117d6",
     "url": "/tarot-site/static/js/1.7d61ef92.chunk.js"
   },
   {
-    "revision": "64833da2e9701abf7c84",
-    "url": "/tarot-site/static/css/main.8fef1138.chunk.css"
+    "revision": "384acd44d838fc01b626",
+    "url": "/tarot-site/static/css/main.2ea8df6e.chunk.css"
   },
   {
-    "revision": "09fd3b309a30914efe2629703b7bbabc",
+    "revision": "cbbb2fcea5647be4b63e9e8ba06c6d1a",
     "url": "/tarot-site/index.html"
   }
 ];

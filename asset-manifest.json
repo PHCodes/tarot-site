@@ -1,14 +1,14 @@
 {
-  "main.css": "/tarot-site/static/css/main.8fef1138.chunk.css",
-  "main.js": "/tarot-site/static/js/main.64833da2.chunk.js",
-  "main.js.map": "/tarot-site/static/js/main.64833da2.chunk.js.map",
+  "main.css": "/tarot-site/static/css/main.2ea8df6e.chunk.css",
+  "main.js": "/tarot-site/static/js/main.384acd44.chunk.js",
+  "main.js.map": "/tarot-site/static/js/main.384acd44.chunk.js.map",
   "static/js/1.7d61ef92.chunk.js": "/tarot-site/static/js/1.7d61ef92.chunk.js",
   "static/js/1.7d61ef92.chunk.js.map": "/tarot-site/static/js/1.7d61ef92.chunk.js.map",
   "runtime~main.js": "/tarot-site/static/js/runtime~main.c1f43ad1.js",
   "runtime~main.js.map": "/tarot-site/static/js/runtime~main.c1f43ad1.js.map",
   "static/media/logo.svg": "/tarot-site/static/media/logo.927b989f.svg",
-  "static/css/main.8fef1138.chunk.css.map": "/tarot-site/static/css/main.8fef1138.chunk.css.map",
+  "static/css/main.2ea8df6e.chunk.css.map": "/tarot-site/static/css/main.2ea8df6e.chunk.css.map",
   "index.html": "/tarot-site/index.html",
-  "precache-manifest.6f5cace7448fc357ed41da95534d9882.js": "/tarot-site/precache-manifest.6f5cace7448fc357ed41da95534d9882.js",
+  "precache-manifest.f6d8fed5740051769a654393e15f0f9d.js": "/tarot-site/precache-manifest.f6d8fed5740051769a654393e15f0f9d.js",
   "service-worker.js": "/tarot-site/service-worker.js"
 }
