@@ -94,8 +94,10 @@ let setup = (itemToCheck) => {
                 linkName: itemToCheck.player.replace(/ /g,''),
                 picture: itemToCheck.picture,
                 headshot: itemToCheck.headshot,
-                textbackgroundcolor: '#1b5181',
-                shouldhaveblacktext: false,
+                textbackgroundcolor: itemToCheck.textbackgroundcolor,
+                backgroundcolor: itemToCheck.backgroundcolor,
+                foregroundcolor: itemToCheck.foregroundcolor,
+                shouldhaveblacktext: itemToCheck.shouldhaveblacktext,
                 items: []
             }
             ownerArray.push(dataToAddTo);

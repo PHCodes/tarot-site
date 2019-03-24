@@ -189,7 +189,7 @@ class HeadshotResult extends Component {
                         nameShortened = this.props.item.name.substring(0, this.props.item.name.indexOf(' '));
                     }
                     applicationLinkVal = (
-                        <div className="info-field">
+                        <div className="owner-field">
                             <br />
                             {<a style={{ 'cursor': 'pointer' }} target="_self" style={{ color: "inherit", fontSize: "18px" }} href={this.props.item[trait.toString()]}>{nameShortened + "'s Application"}</a>}
                             <br />

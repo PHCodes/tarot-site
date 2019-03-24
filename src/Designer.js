@@ -49,7 +49,7 @@ class Designer extends Component {
         let filterNamesAndValues = [];
         let contentToSearch = false;
         let newPreppedCode = "{\n";
-        let subraceStorage = event.currentTarget;
+        let subraceStorage = null;
         let example = {};
         //setup subrace.
 
@@ -137,9 +137,8 @@ class Designer extends Component {
             "Name",
             "Title",
             //Must have raceList above subraceList for ordering.
-            raceList,
-            subraceList,
-            affiliationList,
+            "Race",
+            "Affiliation",
             "Background Color",
             "Foreground Color",
             "Text Background Color",
@@ -192,7 +191,7 @@ class Designer extends Component {
                         <span className="designer-page-inner">
                             <form onSubmit={(event) => this.handleExample(event)}>
                                 {objectsForInformation}
-                                <input className="basic-button example-button" type="submit" value="Submit" />
+                                <input className="basic-button example-button" type="submit" value="Display Preview" />
                             </form>
                             <button id="display-code" onClick={() => this.setState({ showCode: true })} className={"basic-button" + (!this.state.showCode ? "" : " disappear-button")} style={{ 'display': this.state.preppedCode ? 'flex' : 'none' }}>Generate Code</button>
                             <textarea readOnly id="code-area" style={{ 'display': this.state.showCode ? 'flex' : 'none' }} className="prepped-code" value={this.state.preppedCode}></textarea>

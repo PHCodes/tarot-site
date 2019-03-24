@@ -14,7 +14,10 @@
             "picture": "Img/Mana2.gif",
             "headshot": "Img/Mana.jpg",
             "player": "The Frost",
-            "applicationlink": "http://www.platinumhearts.net/t598-legendary-senior-event-class-character-mana-asthavon-the-demon-queen-approved-0-1-0-1-in-kqm-version-6-updating"
+            "applicationlink": "http://www.platinumhearts.net/t598-legendary-senior-event-class-character-mana-asthavon-the-demon-queen-approved-0-1-0-1-in-kqm-version-6-updating",
+            "related": [
+                "Khala Asthavon"
+            ]
         },
         {
             "name": "Adamant",
@@ -62,6 +65,9 @@
             "picture": "Img/Calypso2.PNG",
             "headshot": "Img/Calypso.jpg",
             "player": "Lillian",
+            "related": [
+                "Mana Asthavon"
+            ],
             "applicationlink": "http://www.platinumhearts.net/t19256-calypso-asthavon-danava-of-dreams-and-nightmares-approved-2-3"
         },
         {
@@ -78,7 +84,10 @@
             "picture": "Img/Henrex2.png",
             "headshot": "Img/Henrex.png",
             "player": "Henrex",
-            "related": ["Yoriko Morri"],
+            "related": [
+                "Yoriko Morri",
+                "Kuro Okami"
+            ],
             "applicationlink": "http://www.platinumhearts.net/t17835-henrex-astillon-semi-approved-0-3-0-2-in-release-hazard-rating-s"
         },
         {
@@ -152,7 +161,9 @@
             "power": "Feather Blades, Raw Speed",
             "picture": "https://tse1.mm.bing.net/th?id=OIP.M08E1U4i6uQv0ObYewqPYwHaKX&pid=Api",
             "headshot": "http://fc07.deviantart.net/fs16/f/2007/163/c/b/DNAngel__Krad_by_kurai88.jpg",
-            "related": ["Len Washi"],
+            "related": [
+                "Len Washi"
+            ],
             "player": "JJ"
         },
         {
@@ -169,7 +180,10 @@
             "picture": "http://25.media.tumblr.com/tumblr_lt3pz9DKTe1qbs05mo1_500.png",
             "headshot": "https://tse2.mm.bing.net/th?id=OIP.1kO0rHxVorn7Lz7YCdFqXAHaFV&pid=Api",
             "player": "JJ",
-            "applicationlink": "http://www.platinumhearts.net/t5400-experienced-class-moonie-iramasha-of-the-moon-approved-0-4-nature-iramasha"
+            "applicationlink": "http://www.platinumhearts.net/t5400-experienced-class-moonie-iramasha-of-the-moon-approved-0-4-nature-iramasha",
+            "related": [
+                "Saihossoku Shisome"
+            ]
         },
         {
             "name": "Ulv Auber",
@@ -225,7 +239,8 @@
                 "Suzu Hebi",
                 "Kabuto Hebi",
                 "Sonny Ray",
-                "Calypso"
+                "Calypso",
+                "Khala Asthavon"
             ],
             "activity": "incomplete"
         },
@@ -259,7 +274,9 @@
             "headshot": "https://snag.gy/JbUr1O.jpg",
             "picture": "https://i.pinimg.com/originals/4f/1b/04/4f1b04d1993a94374c1bbdf00206e6ea.jpg",
             "player": "MWD",
-            "related": ["Henrex Astillon"],
+            "related": [
+                "Henrex Astillon"
+            ],
             "applicationlink": "http://www.platinumhearts.net/t18766-yoriko-morri-5-1"
         },
         {
@@ -420,17 +437,18 @@
             "title": "Mad Wolf",
             "race": "Visored",
             "affiliation": "Gotei United",
-            "foregroundcolor": "White",
-            "backgroundcolor": "Black",
-            "textbackgroundcolor": "Red",
-            "shouldhaveblacktext": "Yes",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
             "traits": "Angry!",
             "power": "Punching",
             "picture": "https://i.kym-cdn.com/photos/images/original/001/149/951/583.png",
             "headshot": "https://pbs.twimg.com/profile_images/818624227746058240/YiNWciLV_400x400.jpg",
             "player": "Wan",
             "applicationlink": "http://www.platinumhearts.net/t16312-mirja-eeola-approved-6-0",
-            "activity": "inactive"
+            "activity": "inactive",
+            "dead": "Super."
         },
         {
             "name": "Erenyata Nobumitsuki",
@@ -514,17 +532,21 @@
             "headshot": "https://pbs.twimg.com/profile_images/438149293745004545/y7SGLjYH.png",
             "player": "JJ",
             "applicationlink": "http://www.platinumhearts.net/t17879-hybrid-sunshine-ashtavon-the-danava-of-despair-updated",
-            "activity": "Active"
+            "activity": "Active",
+            "related": [
+                "Khala Asthavon",
+                "Iriko Crow"
+            ]
         },
         {
             "name": "Evie",
             "title": "Maelstrom",
             "race": "Human",
             "affiliation": "Rogue",
-            "backgroundcolor": "Black",
-            "foregroundcolor": "Black",
-            "textbackgroundcolor": "Black",
-            "shouldhaveblacktext": "Yes",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "black",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
             "traits": "Drunk, Scythe",
             "power": "Shinmeiryuu",
             "picture": "https://vignette.wikia.nocookie.net/martial-god-asura/images/7/7e/Eggy.jpg/revision/latest?cb=20180428064823",
@@ -538,10 +560,10 @@
             "title": "Grand Witch",
             "race": "Shinigami",
             "affiliation": "Kokuryuteishi Empire",
-            "backgroundcolor": "White",
-            "foregroundcolor": "Black",
-            "textbackgroundcolor": "red",
-            "shouldhaveblacktext": "Yes",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
             "traits": "Magical Girl",
             "power": "Lotsa Kido!",
             "picture": "https://i.pinimg.com/736x/4c/c8/42/4cc842001fd4df4441c78cbecc7106c4.jpg",
@@ -582,7 +604,10 @@
             "headshot": "https://pbs.twimg.com/profile_images/450392850304630784/1VQMo35u.jpeg",
             "player": "JJ",
             "applicationlink": "http://www.platinumhearts.net/t6081-muryokuna-len-washi-approved-1-3",
-            "related": ["Colin Washi"],
+            "related": [
+                "Colin Washi",
+                "Sassy/Sola"
+            ],
             "activity": "Active"
         },
         {
@@ -600,7 +625,9 @@
             "headshot": "https://snag.gy/Ddh85f.jpg",
             "player": "JJ",
             "applicationlink": "http://www.platinumhearts.net/t11289-bampaia-kyu-ketsukiapproved-1-1",
-            "related": ["Angel"],
+            "related": [
+                "Angel"
+            ],
             "activity": "Active"
         },
         {
@@ -625,10 +652,10 @@
             "title": "The Miracle Doctor",
             "race": "Human",
             "affiliation": "Rogue",
-            "backgroundcolor": "Red",
-            "foregroundcolor": "Green",
-            "textbackgroundcolor": "None",
-            "shouldhaveblacktext": "Yes",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
             "traits": "Old, epic beard",
             "power": "A Doctor",
             "picture": "https://vignette.wikia.nocookie.net/godofhighschool/images/9/9a/Na_Bong-Chim_full_body.PNG",
@@ -642,10 +669,10 @@
             "title": "The Nun",
             "race": "Human",
             "affiliation": "Rogue",
-            "backgroundcolor": "Red",
-            "foregroundcolor": "Black",
-            "textbackgroundcolor": "Black",
-            "shouldhaveblacktext": "Yes",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
             "traits": "Rebellious Nun",
             "power": "Healing powers",
             "picture": "https://i.pinimg.com/originals/20/33/8d/20338d4304fa9e8e83f2f28a9956b38d.jpg",
@@ -659,10 +686,10 @@
             "title": "The Mad Demon",
             "race": "Demon",
             "affiliation": "Shadow Fall",
-            "backgroundcolor": "Red",
-            "foregroundcolor": "Black",
-            "textbackgroundcolor": "White",
-            "shouldhaveblacktext": "Yes",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
             "traits": "Madness",
             "power": "Dark Forbidden True Form",
             "picture": "https://vignette.wikia.nocookie.net/capcomdatabase/images/5/52/Asura.png/revision/latest?cb=20130412173429",
@@ -703,7 +730,9 @@
             "headshot": "https://i.imgur.com/oW1dGDI.jpg",
             "player": "The Owl",
             "applicationlink": "http://www.platinumhearts.net/t19003p10-angel-approved-2-5-1-5",
-            "related": ["Bampaia Kyu Ketsuki"],
+            "related": [
+                "Bampaia Kyu Ketsuki"
+            ],
             "activity": "Active"
         },
         {
@@ -722,6 +751,313 @@
             "player": "The Owl",
             "applicationlink": "http://www.platinumhearts.net/t19513-yurei-mizuhime-finished",
             "activity": "Active"
+        },
+        {
+            "name": "Hops",
+            "title": "The Muffin Ghost",
+            "race": "Plus",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#ae3135",
+            "foregroundcolor": "#e6c1c2",
+            "textbackgroundcolor": "#57181A",
+            "shouldhaveblacktext": "No",
+            "traits": "None",
+            "power": "Unlimited Muffins",
+            "picture": "https://i.pinimg.com/originals/6a/32/44/6a324486d6a6e52285251316e8da2925.jpg",
+            "headshot": "https://snag.gy/Gls6Iw.jpg",
+            "player": "Bunny",
+            "applicationlink": "http://www.platinumhearts.net/t20209-hops#129667",
+            "activity": "Active"
+        },
+        {
+            "name": "Naya Hirondelle",
+            "title": "The Ambitious",
+            "race": "Arrancar",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#0025ff",
+            "foregroundcolor": "#00ffe2",
+            "textbackgroundcolor": "#000",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Distant, Anti-social, Cold",
+            "power": "Water Manipulation",
+            "picture": "https://cdna.artstation.com/p/assets/images/images/014/280/158/large/erai-violett-coven-lissandra-eraiviolett-lr.jpg?1543318946",
+            "headshot": "https://i.pinimg.com/originals/fb/93/90/fb93909ce9fe0345addccdc07a49250d.jpg",
+            "player": "MistahxJay",
+            "applicationlink": "http://www.platinumhearts.net/t19174-naya-hirondelle-approved-3-5",
+            "activity": "Active"
+        },
+        {
+            "name": "Mitsuyo Nami",
+            "title": "Dimly Lit Swordsman",
+            "race": "Shinigami",
+            "affiliation": "Gotei United",
+            "backgroundcolor": "#00caff",
+            "foregroundcolor": "#0003ff",
+            "textbackgroundcolor": "#000",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Aloof, Ignorant, Carefree",
+            "power": "Light Manipulation",
+            "picture": "https://i.imgur.com/0xTpaur.jpg",
+            "headshot": "https://cdnb.artstation.com/p/assets/images/images/006/591/479/large/nin-zephyr-bloodmoon-yasuo-nin.jpg?1499766516",
+            "player": "MistahxJay",
+            "applicationlink": "http://www.platinumhearts.net/t19216-mitsuyo-the-generation-of-light-approved-3-1",
+            "activity": "Active"
+        },
+        {
+            "name": "Saiya",
+            "title": "Half-Djinn Hero",
+            "race": "Demon",
+            "affiliation": "Lux Orior",
+            "backgroundcolor": "#9d00ff",
+            "foregroundcolor": "#ff0018",
+            "textbackgroundcolor": "#000",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Naive Genie",
+            "power": "Changeling",
+            "picture": "https://2.bp.blogspot.com/-NEkuxGQAeLU/WvLzd_G4ebI/AAAAAAAAByE/gdVZJL_SVRg32uWOxtoFy728hK9-KOUIgCLcBGAs/s400/Shantae%2BHalf-Genie%2BHero%2Bby%2Bburburart.jpg",
+            "headshot": "https://snag.gy/AIx1ob.jpg",
+            "player": "MistahxJay",
+            "applicationlink": "http://www.platinumhearts.net/t19214-saiya-the-half-jinn-approved-1-5-hazard-rating-c",
+            "activity": "Active"
+        },
+        {
+            "name": "Anis Kabal",
+            "title": "Wild Monster",
+            "race": "Quincy",
+            "affiliation": "Vandenreich",
+            "backgroundcolor": "#ff5700",
+            "foregroundcolor": "#1a00ff",
+            "textbackgroundcolor": "#000",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Unbridled Power",
+            "power": "Quiny Stuff",
+            "picture": "https://cdn.discordapp.com/attachments/333309422506082314/558270061123731456/image.png",
+            "headshot": "https://snag.gy/sVJt9q.jpg",
+            "player": "Wan",
+            "applicationlink": "http://www.platinumhearts.net/t19170-anis-kabal",
+            "activity": "Active"
+        },
+        {
+            "name": "Blackheart Gremory",
+            "title": "Demon Of The East",
+            "race": "Demon",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
+            "traits": "Scary. Dead.",
+            "power": "Bare-hand combat",
+            "picture": "https://imgix.ranker.com/user_node_img/50088/1001743195/original/hero-and-_39_s-job-photo-u2?w=650&q=50&fm=pjpg&fit=crop&crop=faces",
+            "headshot": "https://i.ytimg.com/vi/qUSKA0f893M/maxresdefault.jpg",
+            "player": "Shizuo",
+            "applicationlink": "http://www.platinumhearts.net/t12844p10-blackheart-gremory-the-davana-of-bare-hand-combat-approved-0-3",
+            "activity": "Inactive",
+            "dead": "Absolutely"
+        },
+        {
+            "name": "Saihossoku Shisome",
+            "title": "Living Doll",
+            "race": "Human",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#ae3135",
+            "foregroundcolor": "#ff8b00",
+            "textbackgroundcolor": "#d67c0b",
+            "shouldhaveblacktext": "No",
+            "traits": "Silent, Thoughtful, Doll-like",
+            "power": "Adaptation, Evolution",
+            "picture": "https://sloppyetymology.files.wordpress.com/2014/06/hell_girl_jigoku_shoujo_ai_enma_enma_ai_inbetween_hell_tree_red_twilight_sunset.jpg",
+            "headshot": "https://snag.gy/SVOLor.jpg",
+            "player": "Angelique",
+            "applicationlink": "http://www.platinumhearts.net/t12016-saihossoku-shisome-human",
+            "activity": "Inactive",
+            "related": [
+                "Moonie"
+            ]
+        },
+        {
+            "name": "Ketheldrein Leonhardt",
+            "title": "Princess of Eradication",
+            "race": "Sugiura",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#6200ff",
+            "foregroundcolor": "#ffe300",
+            "textbackgroundcolor": "#3100ff",
+            "shouldhaveblacktext": "No",
+            "traits": "Forgetful, Passionate, Loyal",
+            "power": "Eradication, Guns",
+            "picture": "https://1.bp.blogspot.com/-TBspMavzDlU/WCVK3UNK_wI/AAAAAAAAD34/aQhtlDRMPD4F_UMNWc9GoS0jgI-hHTeCgCLcB/s1600/BlazBlue_Calamity_Trigger_Artwork_3.jpg",
+            "headshot": "https://snag.gy/O2pUVs.jpg",
+            "player": "Angelique",
+            "applicationlink": "http://www.platinumhearts.net/t10583-sugiura-ketheldrein-leonhardt-eradication-s-encore",
+            "activity": "Inactive",
+            "related": [
+                "Kakeru Leonhardt"
+            ]
+        },
+        {
+            "name": "Kakeru Leonhardt",
+            "title": "Royal Western Praetorian Knight",
+            "race": "Sugiura",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#3b00ff",
+            "foregroundcolor": "#006fff",
+            "textbackgroundcolor": "#0a00ff",
+            "shouldhaveblacktext": "No",
+            "traits": "Cold, Calculating, Private",
+            "power": "Raw Speed",
+            "picture": "http://www.theotaku.com/submissions/temporary/wallpapers/captions/564093-20091217203608.jpg",
+            "headshot": "https://www.bing.com/th?id=OIP.TDOML6HqOob7xwOPQXuuDwAAAA&pid=Api&rs=1&p=0",
+            "player": "Kakeru",
+            "applicationlink": "http://www.platinumhearts.net/t10258-sugiura-kakeru-leonhardt-oath-to-order-approved-0-1-normal",
+            "activity": "Inactive",
+            "related": [
+                "Ketheldrein Leonhardt"
+            ]
+        },
+        {
+            "name": "Desmond Hayden",
+            "title": "King of Vastime",
+            "race": "Visored",
+            "affiliation": "Vastime",
+            "backgroundcolor": "#444444",
+            "foregroundcolor": "#aaaaaa",
+            "textbackgroundcolor": "#ff0000",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Ambitious, Strong Willed, Powerful",
+            "power": "Death, Physicality, Conceptual",
+            "picture": "https://66.media.tumblr.com/760c6dc341a9a98bc0b0f7007159f421/tumblr_pgsxn4CslS1w2njfxo1_540.png",
+            "headshot": "https://66.media.tumblr.com/422599c74a5f98756da6db0a2841862a/tumblr_pmztaaJNjj1w2njfxo1_540.png",
+            "player": "Morph",
+            "applicationlink": "http://www.platinumhearts.net/t15133-desmond-hayden-2016-revamp-approved-0-2-0-2-0-2-hazard-rating-x",
+            "activity": "Active"
+        },
+        {
+            "name": "Atlas D'al Decter",
+            "title": "Warhound of Vastime",
+            "race": "Human",
+            "affiliation": "Vastime",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
+            "traits": "Genius, Loyal, Tactician",
+            "power": "Conceptual, Martial Arts, Endurance",
+            "picture": "https://i.pinimg.com/originals/e9/7d/30/e97d302f6183976d9078c509c68fefcc.png",
+            "headshot": "https://pbs.twimg.com/profile_images/887070601155948544/Bk0ipMDN_400x400.jpg",
+            "player": "Morph",
+            "applicationlink": "http://www.platinumhearts.net/t16658-atlas-d-al-decter-warhound-of-vastime-approved-2-4-hazard-rating-a",
+            "activity": "Active"
+        },
+        {
+            "name": "Yuel Duulheim",
+            "title": "Mind of Karakura :^)",
+            "race": "Human",
+            "affiliation": "Lux Orior",
+            "backgroundcolor": "#6AA7D1",
+            "foregroundcolor": "#7D81BA",
+            "textbackgroundcolor": "#ffffff",
+            "shouldhaveblacktext": "Yes",
+            "traits": "5000IQ",
+            "power": "Samsara Cycle",
+            "picture": "https://i.imgur.com/rWeEUqd.png",
+            "headshot": "https://i.imgur.com/zoRNhGC.png",
+            "player": "S_E",
+            "applicationlink": "http://www.platinumhearts.net/t19989-yuel-duulheim-approved-0-3-sub-shinigami-hazard-rating-s",
+            "activity": "Active"
+        },
+        {
+            "name": "Solhammond Palliser",
+            "title": "The Moon Cutter",
+            "race": "Human",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#792225",
+            "foregroundcolor": "#451315",
+            "textbackgroundcolor": "#767676",
+            "shouldhaveblacktext": "No",
+            "traits": "Broke, Family, Tired",
+            "power": "The Hustle",
+            "picture": "https://i.pinimg.com/originals/54/0c/f3/540cf3bb7d696b03dd39b832534f6406.jpg",
+            "headshot": "https://i.pinimg.com/originals/a5/77/e0/a577e0d968854b06c7edc4870e1c25cd.jpg",
+            "player": "Morph",
+            "applicationlink": "http://www.platinumhearts.net/t20231-solhammond-palliser-approved-5-4#129787",
+            "activity": "Active"
+        },
+        {
+            "name": "Tyrant Hunger",
+            "title": "Biggest of Boys",
+            "race": "Hollow",
+            "affiliation": "Rogue",
+            "backgroundcolor": "#310c0c",
+            "foregroundcolor": "#842121",
+            "textbackgroundcolor": "#210808",
+            "shouldhaveblacktext": "No",
+            "traits": "Always Hungry",
+            "power": "Worldbreaker's Siege ",
+            "picture": "https://78.media.tumblr.com/0552b3c39ff45643fdd0914ffc1053f8/tumblr_inline_p7k7uoDnih1qdq19t_540.png",
+            "headshot": "https://snag.gy/8B6gvK.jpg",
+            "player": "Magicaltrapmiyuki",
+            "applicationlink": "http://www.platinumhearts.net/t19366-tyrant-hunger-approved-4-1-hollow",
+            "activity": "Active"
+        },
+        {
+            "name": "Sassy/Sola",
+            "title": "Sassy Cat Queen of Sirsa",
+            "race": "Demon",
+            "affiliation": "Sirsa",
+            "backgroundcolor": "#ffd700",
+            "foregroundcolor": "#521515",
+            "textbackgroundcolor": "#F3EDBB",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Friendly, Unabashed",
+            "power": "Fortune",
+            "picture": "https://tse1.explicit.bing.net/th?id=OIP.bqsGUskrJYw8XLeHcVS_fgHaGz&pid=Api",
+            "headshot": "https://snag.gy/SFQfXq.jpg",
+            "player": "Watamote",
+            "related": [
+                "Len Washi"
+            ]
+        },
+        {
+            "name": "Khala Asthavon",
+            "title": "Heart of Deveta",
+            "race": "Demon",
+            "affiliation": "Khalaism, Shadow Fall",
+            "backgroundcolor": "#66adaf",
+            "foregroundcolor": "#000",
+            "textbackgroundcolor": "#00ff87",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Uneasy, Desperate, Empathetic",
+            "power": "Omniwill, Surpassing Law",
+            "picture": "https://www.bing.com/th?id=OIP.YFzz0wTsDpmfxIyG6DxSaQHaKl&pid=Api&rs=1&p=0",
+            "headshot": "https://2img.net/h/i494.photobucket.com/albums/rr309/iconsoffury/Koishi/koishi08.png",
+            "player": "The Frost",
+            "applicationlink": "http://www.platinumhearts.net/t10693-khala-asthavon-heart-of-deveta-the-demon-creator-legendary-event-character",
+            "activity": "Active",
+            "related": [
+                "Iriko Crow",
+                "Nevermore Truth",
+                "Sunshine Asthavon",
+                "Mana Asthavon"
+            ]
+        },
+        {
+            "name": "Kuro Okami",
+            "title": "Shadow Shinigami",
+            "race": "Shinigami",
+            "affiliation": "Gotei United",
+            "backgroundcolor": "#808080",
+            "foregroundcolor": "#d7dbe1",
+            "textbackgroundcolor": "#ccbea2",
+            "shouldhaveblacktext": "Yes",
+            "traits": "Cold, Analytical, Suppressed",
+            "power": "Shadows, Stealth",
+            "picture": "https://wallup.net/wp-content/uploads/2016/05/14/36984-anime-D.Gray-man-Allen_Walker.jpg",
+            "headshot": "https://www.bing.com/th?id=OIP.-VBfuP3caCmtDXHZ287gDwAAAA&pid=Api&rs=1&p=0",
+            "player": "JJ",
+            "applicationlink": "http://www.platinumhearts.net/t5951-kuro-okami-approved-0-5-shinigami",
+            "activity": "Active",
+            "related": ["Henrex Astillon"]
         }
     ]
 }

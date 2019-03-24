@@ -1,10 +1,113 @@
 {
     "colors": [
         {
+            "name": "Red and Pink",
+            "foregroundcolor": "#b30000",
+            "backgroundcolor": "#ff6666",
+            "textbackgroundcolor": "#ff99cc"
+        },
+        {
+            "name": "Yellow and Gold",
+            "foregroundcolor": "#ECC750",
+            "backgroundcolor": "#F3E99D",
+            "textbackgroundcolor": "#F3EDBB"
+        },
+        {
+            "name": "Red and Dark Red",
+            "foregroundcolor": "#7C0014",
+            "backgroundcolor": "#660111",
+            "textbackgroundcolor": "#900013"
+        },
+        {
+            "name": "Purple and Blue",
+            "foregroundcolor": "#34074D",
+            "backgroundcolor": "#110732",
+            "textbackgroundcolor": "#330E5B"
+        },
+        {
+            "name": "Purple and Dark Purple",
+            "foregroundcolor": "#832697",
+            "backgroundcolor": "#4B0082",
+            "textbackgroundcolor": "#8B008B"
+        },
+        {
+            "name": "Dark Purple",
+            "foregroundcolor": "#30001c",
+            "backgroundcolor": "#91175e",
+            "textbackgroundcolor": "#470029"
+        },
+        {
+            "name": "Dark Purple and Dark Yellow",
+            "foregroundcolor": "#28051F",
+            "backgroundcolor": "#3B0745",
+            "textbackgroundcolor": "#C58000"
+        },
+        {
+            "name": "Green and Dark Green",
+            "foregroundcolor": "#394C36",
+            "backgroundcolor": "#0D160B",
+            "textbackgroundcolor": "#A2BE9E"
+        },
+        {
+            "name": "Orange and Gold",
+            "foregroundcolor": "#D35000",
+            "backgroundcolor": "#DB5B02",
+            "textbackgroundcolor": "#DF881B"
+        },
+        {
+            "name": "White and Black",
+            "foregroundcolor": "Gray",
+            "backgroundcolor": "White",
+            "textbackgroundcolor": "Black"
+        },
+        {
+            "name": "Teal and Blue",
+            "foregroundcolor": "#0A4953",
+            "backgroundcolor": "#3E8590",
+            "textbackgroundcolor": "#92B5C1"
+        },
+        {
+            "name": "Gray and Light Purple",
+            "foregroundcolor": "#AC8585",
+            "backgroundcolor": "#856666",
+            "textbackgroundcolor": "#C4AFAF"
+        },
+        {
+            "name": "Dark Blue and Green",
+            "foregroundcolor": "#132115",
+            "backgroundcolor": "#0C1021",
+            "textbackgroundcolor": "#0F0F15Y"
+        },
+        {
+            "name": "Light Blues",
+            "foregroundcolor": "#ADD8E6",
+            "backgroundcolor": "#72bcd4",
+            "textbackgroundcolor": "#d4ebf2"
+        },
+        {
+            "name": "Purples",
+            "foregroundcolor": "#A226A4",
+            "backgroundcolor": "#6B216D",
+            "textbackgroundcolor": "#EEB2F0"
+        },
+        {
+            "name": "Blue Purple and Blue",
+            "foregroundcolor": "#232A5E",
+            "backgroundcolor": "#8288B0",
+            "textbackgroundcolor": "#8B79AC"
+        },
+        {
+            "name": "Gray and Black",
+            "backgroundcolor": "#776b5b",
+            "foregroundcolor": "#cebb9b",
+            "textbackgroundcolor": "#000"
+        },
+        {
             "name": "Moonie Colors",
             "foregroundcolor": "#280128",
             "backgroundcolor": "#5D0206",
-            "textbackgroundcolor": "#AA7200",
+            "textbackgroundcolor": "#AA7200"
         }
+        
     ]
 }
