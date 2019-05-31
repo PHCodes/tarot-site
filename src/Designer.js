@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './Designer.css';
 import { HuePicker } from 'react-color'
 import HeadshotResult from './HeadshotResultDesigner';
+import Headshot from './Headshot';
 import * as AffiliationList from './affiliations.json';
 import * as RaceList from './races.json';
 import * as SubraceList from './subraces.json';
@@ -16,15 +17,15 @@ class Designer extends Component {
         this.state = {
             preppedCode: null,
             showCode: false,
-            backgroundColor : "#000",
-            foregroundColor : "#000",
-            textBackgroundColor : "#000",
+            backgroundColor: "#000",
+            foregroundColor: "#000",
+            textBackgroundColor: "#000",
+            customFlag: false
         }
     }
 
     componentDidMount() {
         let scroller = document.getElementById("main-color");
-
         scroller.scrollTop = 0;
     }
 
@@ -89,28 +90,31 @@ class Designer extends Component {
         this.setState({ preppedCode: newPreppedCode });
 
         ReactDOM.render(<HeadshotResult item={example} match={this.props.match} tempField={true} getOwner={(trait, traitName) => this.props.getItemByTrait(trait, traitName)} leftLink={() => { return null }} rightLink={() => { return null }} />, document.getElementById('example'))
-
+        ReactDOM.render(<Headshot item={example} match={this.props.match} />, document.getElementById("example-headshot"));
         return false;
     }
-
     selectCode = () => {
         document.getElementById("code-area").focus();
         document.getElementById("code-area").select();
     }
 
     changeBackgroundInput = (color, event) => {
-        this.setState({ backgroundColor: color.hex});
+        this.setState({ backgroundColor: color.hex });
+        document.getElementById('Background Color').value = color.hex;
     }
 
     changeForegroundInput = (color, event) => {
-        this.setState({ foregroundColor: color.hex});
+        this.setState({ foregroundColor: color.hex });
+        document.getElementById('Foreground Color').value = color.hex;
     }
 
     changeTextBackgroundInput = (color, event) => {
-        this.setState({ textBackgroundColor: color.hex});
+        this.setState({ textBackgroundColor: color.hex });
+        document.getElementById('Text Background Color').value = color.hex;
     }
 
     render() {
+        /*
         let affiliationList = {};
         affiliationList.name = AffiliationList.name;
         affiliationList.list = AffiliationList.list;
@@ -123,6 +127,7 @@ class Designer extends Component {
         subraceList.name = SubraceList.name;
         subraceList.list = SubraceList.list;
 
+        */ 
         let blackTextCheck = {
             name: "Should Have Black Text",
             list: ['Yes', 'No']
@@ -131,7 +136,7 @@ class Designer extends Component {
         let statusSet = {
             name: "Activity",
             list: ["Active", "Inactive", "Incomplete"]
-        }
+        } 
 
         let propertiesToExemplify = [
             "Name",
@@ -155,24 +160,32 @@ class Designer extends Component {
         for (var property of propertiesToExemplify) {
             if (!property.name) {
                 if (property.includes("Color")) {
-                    let currentState;
-                    let handleChangeCompleteFunc;
-                    let stateToChange = property.replace(/ /g,'');
-                    if(property == "Background Color"){
-                        currentState = this.state.backgroundColor;
-                        handleChangeCompleteFunc = this.changeBackgroundInput;
-                    }
-                    if(property == "Foreground Color"){
-                        currentState = this.state.foregroundColor;
-                        handleChangeCompleteFunc = this.changeForegroundInput;
-                    }  
-                    if(property == "Text Background Color"){
-                        currentState = this.state.textBackgroundColor
-                        handleChangeCompleteFunc = this.changeTextBackgroundInput;
-                    }
-                    objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input type="text" className="example-input" name={property} value={currentState} /></div>)
-                    objectsForInformation.push(<div className="" style={{'display': 'flex', 'justify-content': 'center', 'padding-top': '1vh'}}><HuePicker  onChange={ handleChangeCompleteFunc } color='#000'/></div>);
-                } else {
+                    if(this.state.customFlag){
+                        objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input type="text" className="example-input" name={property} /></div>)
+                    }else{
+                        let currentState;
+                        let handleChangeCompleteFunc;
+                        let stateToChange = property.replace(/ /g, '');
+                        if (property == "Background Color") {
+                            currentState = this.state.backgroundColor;
+                            handleChangeCompleteFunc = this.changeBackgroundInput;
+                        }
+                        if (property == "Foreground Color") {
+                            currentState = this.state.foregroundColor;
+                            handleChangeCompleteFunc = this.changeForegroundInput;
+                        }
+                        if (property == "Text Background Color") {
+                            currentState = this.state.textBackgroundColor
+                            handleChangeCompleteFunc = this.changeTextBackgroundInput;
+                        }
+                        let persistentName = {
+                            name: property.toString(),
+                        }
+                        objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input id={persistentName.name} type="text" className="example-input" name={property} defaultValue={currentState} /></div>)
+                        objectsForInformation.push(<div className="" style={{ 'display': 'flex', 'justify-content': 'center', 'padding-top': '1vh' }}><HuePicker onChange={handleChangeCompleteFunc} color="#000"/></div>);
+                       
+
+                    }} else {
                     objectsForInformation.push(<div className="example-section"><span className="example-header">{property}: </span><input type="text" className="example-input" name={property} /></div>)
                 }
             } else {
@@ -198,6 +211,9 @@ class Designer extends Component {
                             <button id="select-text" style={{ 'display': this.state.showCode ? 'flex' : 'none' }} className="basic-button" onClick={() => this.selectCode()}>Select Code</button>
                         </span>
                     </span>
+
+                    <div id="example-headshot">
+                    </div>
 
                     <div id="example">
                     </div>

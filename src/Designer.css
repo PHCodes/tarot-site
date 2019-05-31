@@ -115,6 +115,9 @@
 }
 
 .example-button{
+    display: flex;
+    margin-left: 21vh;
+    text-align: center;
     margin-top: 3vh;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
 }
